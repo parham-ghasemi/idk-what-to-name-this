@@ -1,25 +1,31 @@
 import { useEffect, useState } from "react";
 import "./TabsAndSortBar.scss";
+
 const TabAndSortBar = ({ updateTab }) => {
   const tabs = [
-    { title: "همه", icon: "/icons/tick.svg" },
-    { title: "حضوری", icon: "/icons/Stethoscope.svg" },
-    { title: "تلفنی", icon: "/icons/Healthcare Call.svg" },
-    { title: "آنلاین", icon: "/icons/messages-2.svg" },
-    { title: "مراکز درمانی", icon: "/icons/Hospital Symbol.svg" },
+    { value: "All", title: "همه", icon: "/icons/Medical Symbol.svg" },
+    { value: "In-person", title: "حضوری", icon: "/icons/Stethoscope.svg" },
+    { value: "Phone", title: "تلفنی", icon: "/icons/Healthcare Call.svg" },
+    { value: "Online", title: "آنلاین", icon: "/icons/messages-2.svg" },
+    {
+      value: "Clinics",
+      title: "مراکز درمانی",
+      icon: "/icons/Hospital Symbol.svg",
+    },
   ];
+
   const sortingOptions = [
-    "پیشفرض",
-    "بیشترین نوبت موفق",
-    "محبوب ترین",
-    "نزدیک ترین نوبت ",
+    { value: "Default", label: "پیشفرض" },
+    { value: "Most Successful Appointments", label: "بیشترین نوبت موفق" },
+    { value: "Most Popular", label: "محبوب ترین" },
+    { value: "Soonest Appointment", label: "نزدیک ترین نوبت" },
   ];
 
   const [activeTabIndex, setActiveTabIndex] = useState(0);
   const [activeSortingOption, setActiveSortingOption] = useState(0);
 
   useEffect(() => {
-    updateTab(tabs[activeTabIndex].title);
+    updateTab(tabs[activeTabIndex].value);
   }, [activeTabIndex]);
 
   return (
@@ -37,7 +43,8 @@ const TabAndSortBar = ({ updateTab }) => {
             onClick={() => setActiveTabIndex(index)}
           >
             <img
-              src={tab.icon}
+              // src={tab.icon}
+              src={index === activeTabIndex ? "/icons/tick.svg" : tab.icon}
               alt="icon"
               className="tab-and-sort-container__tab-container__tab__image"
             />
@@ -62,7 +69,7 @@ const TabAndSortBar = ({ updateTab }) => {
               }
               onClick={() => setActiveSortingOption(index)}
             >
-              {option}
+              {option.label}
             </p>
           ))}
         </div>

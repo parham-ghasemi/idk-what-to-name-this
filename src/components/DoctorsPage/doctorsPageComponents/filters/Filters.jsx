@@ -35,8 +35,8 @@ export const Filters = () => {
     ...selectedAcademicRank,
     selectedInsurance.label || "",
     selectedDoctorDetails,
-    onlyOnline ? "فقط پزشکان آنلاین" : "",
-    gender === "male" ? "مرد" : gender === "female" ? "زن" : "",
+    onlyOnline ? "only-online" : "",
+    gender === "male" ? "male" : gender === "female" ? "female" : "",
   ].filter(Boolean);
 
   const handleRemoveFilter = (filter) => {
@@ -55,15 +55,15 @@ export const Filters = () => {
       setSelectedInsurance("");
     } else if (filter === selectedDoctorDetails) {
       setSelectedDoctorDetails("");
-    } else if (filter === "فقط پزشکان آنلاین") {
+    } else if (filter === "only-online") {
       setOnlyOnline(false);
-    } else if (filter === "مرد" || filter === "زن") {
+    } else if (filter === "male" || filter === "female") {
       setGender("");
     }
   };
 
   const currentAreas =
-    areaOptions.find((c) => c.name === selectedCity.label)?.areas || [];
+    areaOptions.find((c) => c.name === selectedCity?.label)?.areas || [];
 
   return (
     <div className="filters">

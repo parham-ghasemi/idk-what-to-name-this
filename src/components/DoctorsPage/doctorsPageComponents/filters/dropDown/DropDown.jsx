@@ -9,7 +9,6 @@ const Dropdown = ({
   isOpen,
   onToggle,
 }) => {
-
   const getItemLabel = (item) => (typeof item === "string" ? item : item.label);
   const getItemImage = (item) => (typeof item === "string" ? null : item.image);
 
