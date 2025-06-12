@@ -22,20 +22,25 @@ export const Filters = () => {
   const [selectedInsurance, setSelectedInsurance] = useState("");
   const [selectedDoctorDetails, setSelectedDoctorDetails] = useState("");
 
+  const [openDropdown, setOpenDropdown] = useState(null);
+  const toggleDropdown = (name) => {
+    setOpenDropdown((prev) => (prev === name ? null : name));
+  };
+
   const selectedFilters = [
     selectedSpecialty,
     selectedServices,
-    selectedCity,
+    selectedCity.label || "",
     selectedArea,
     ...selectedAcademicRank,
-    selectedInsurance,
+    selectedInsurance.label || "",
     selectedDoctorDetails,
     onlyOnline ? "فقط پزشکان آنلاین" : "",
     gender === "male" ? "مرد" : gender === "female" ? "زن" : "",
   ].filter(Boolean);
 
   const handleRemoveFilter = (filter) => {
-    if (filter === selectedCity) {
+    if (filter === selectedCity.label) {
       setSelectedCity("");
       setSelectedArea("");
     } else if (filter === selectedArea) {
@@ -46,7 +51,7 @@ export const Filters = () => {
       setSelectedSpecialty("");
     } else if (selectedAcademicRank.includes(filter)) {
       setSelectedAcademicRank((prev) => prev.filter((item) => item !== filter));
-    } else if (filter === selectedInsurance) {
+    } else if (filter === selectedInsurance.label) {
       setSelectedInsurance("");
     } else if (filter === selectedDoctorDetails) {
       setSelectedDoctorDetails("");
@@ -58,7 +63,7 @@ export const Filters = () => {
   };
 
   const currentAreas =
-    areaOptions.find((c) => c.name === selectedCity)?.areas || [];
+    areaOptions.find((c) => c.name === selectedCity.label)?.areas || [];
 
   return (
     <div className="filters">
@@ -89,11 +94,18 @@ export const Filters = () => {
           label="تخصص‌ها"
           items={specialtyOptions}
           onSelect={setSelectedSpecialty}
+          value={selectedSpecialty}
+          isOpen={openDropdown === "specialty"}
+          onToggle={() => toggleDropdown("specialty")}
         />
+
         <Dropdown
           label="خدمات"
           items={serviceOptions}
           onSelect={setSelectedServices}
+          value={selectedServices}
+          isOpen={openDropdown === "services"}
+          onToggle={() => toggleDropdown("services")}
         />
 
         <div className="filters__content__location">
@@ -104,11 +116,18 @@ export const Filters = () => {
               setSelectedCity(val);
               setSelectedArea("");
             }}
+            value={selectedCity}
+            isOpen={openDropdown === "city"}
+            onToggle={() => toggleDropdown("city")}
           />
+
           <Dropdown
             label="محدوده"
             items={currentAreas}
             onSelect={setSelectedArea}
+            value={selectedArea}
+            isOpen={openDropdown === "area"}
+            onToggle={() => toggleDropdown("area")}
           />
         </div>
 
@@ -152,17 +171,28 @@ export const Filters = () => {
           label="درجه علمی"
           items={academicRankOptions}
           onSelect={setSelectedAcademicRank}
+          value={selectedAcademicRank}
           multi
+          isOpen={openDropdown === "rank"}
+          onToggle={() => toggleDropdown("rank")}
         />
+
         <Dropdown
           label="بیمه"
           items={insuranceOptions}
           onSelect={setSelectedInsurance}
+          value={selectedInsurance}
+          isOpen={openDropdown === "insurance"}
+          onToggle={() => toggleDropdown("insurance")}
         />
+
         <Dropdown
           label="جزئیات پزشک"
           items={doctorDetailsOptions}
           onSelect={setSelectedDoctorDetails}
+          value={selectedDoctorDetails}
+          isOpen={openDropdown === "details"}
+          onToggle={() => toggleDropdown("details")}
         />
       </div>
     </div>

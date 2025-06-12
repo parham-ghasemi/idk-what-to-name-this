@@ -12,22 +12,24 @@ export const serviceOptions = [
 ];
 
 export const cityOptions = [
-  "تهران",
-  "اصفهان",
-  "مشهد",
-  "شیراز",
-  "تبریز",
-  "اهواز",
-  "رشت",
+  { label: "تهران", image: "/icons/location-2.svg" },
+  { label: "اصفهان", image: "/icons/location-2.svg" },
+  { label: "مشهد", image: "/icons/location-2.svg" },
+  { label: "شیراز", image: "/icons/location-2.svg" },
+  { label: "تبریز", image: "/icons/location-2.svg" },
+  { label: "اهواز", image: "/icons/location-2.svg" },
+  { label: "رشت", image: "/icons/location-2.svg" },
 ];
+
 
 export const academicRankOptions = ["استاد", "دانشیار", "استادیار", "پزشک عمومی"];
 
 export const insuranceOptions = [
-  { label: "تأمین اجتماعی", image: "/icons/taamin.svg" },
-  { label: "سلامت", image: "/icons/salamat.svg" },
-  { label: "آتیه‌سازان", image: "/icons/atiyeh.svg" },
-  { label: "بانک‌ها", image: "/icons/bank.svg" },
+  { label: "بیمه دانا", image: "/images/insurance-dana.png" },
+  { label: "بیمه ملت", image: "/images/insurance-melat.png" },
+  { label: "بیمه ایران", image: "/images/insurance-iran.png" },
+  { label: "بیمه اتکایی ایرانیان", image: "/images/insurance-hafez.png" },
+  { label: "بیمه حافظ", image: "/images/reinsurance-iranian.png" },
 ];
 
 export const doctorDetailsOptions = [

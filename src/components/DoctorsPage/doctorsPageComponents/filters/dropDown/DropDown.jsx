@@ -1,96 +1,40 @@
-// import { useState } from "react";
-// import "./Dropdown.scss";
-
-// const Dropdown = ({ label, items = [], onSelect, multi = false }) => {
-//   const [isOpen, setIsOpen] = useState(false);
-//   const [selectedItems, setSelectedItems] = useState([]);
-
-//   const handleSelect = (item) => {
-//     if (multi) {
-//       let newSelectedItems;
-//       if (selectedItems.includes(item)) {
-//         newSelectedItems = selectedItems.filter((i) => i !== item);
-//       } else {
-//         newSelectedItems = [...selectedItems, item];
-//       }
-//       setSelectedItems(newSelectedItems);
-//       if (onSelect) onSelect(newSelectedItems);
-//     } else {
-//       setSelectedItems([item]);
-//       setIsOpen(false);
-//       if (onSelect) onSelect(item);
-//     }
-//   };
-
-//   const displayLabel = () => {
-//     if (!selectedItems.length) return label;
-//     return multi ? selectedItems.join(", ") : selectedItems[0];
-//   };
-
-//   return (
-//     <div className={`dropdown ${isOpen ? "open" : ""}`}>
-//       <div className="dropdown__header" onClick={() => setIsOpen(!isOpen)}>
-//         <span className="dropdown__header__label">{displayLabel()}</span>
-//         <img
-//           src="/icons/chevron-down.svg"
-//           alt="arrow"
-//           className={`dropdown__icon ${isOpen ? "rotate" : ""}`}
-//         />
-//       </div>
-
-//       <ul className={`dropdown__list ${isOpen ? "open" : ""}`}>
-//         {items.map((item, index) => (
-//           <li
-//             key={index}
-//             className={`dropdown__item ${
-//               selectedItems.includes(item) ? "selected" : ""
-//             }`}
-//             onClick={() => handleSelect(item)}
-//           >
-//             {item}
-//             {multi && (
-//               <input
-//                 type="checkbox"
-//                 className="dropdown__check"
-//                 checked={selectedItems.includes(item)}
-//                 readOnly
-//               />
-//             )}
-//           </li>
-//         ))}
-//       </ul>
-//     </div>
-//   );
-// };
-
-// export default Dropdown;
-
-import { useState } from "react";
 import "./Dropdown.scss";
 
-const Dropdown = ({ label, items = [], onSelect, multi = false }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [selectedItems, setSelectedItems] = useState([]);
+const Dropdown = ({
+  label,
+  items = [],
+  onSelect,
+  multi = false,
+  value,
+  isOpen,
+  onToggle,
+}) => {
 
   const getItemLabel = (item) => (typeof item === "string" ? item : item.label);
   const getItemImage = (item) => (typeof item === "string" ? null : item.image);
 
-  const handleSelect = (item) => {
-    const label = getItemLabel(item);
+  const selectedItems = value
+    ? multi
+      ? value
+      : value !== ""
+      ? [value]
+      : []
+    : [];
 
+  const handleSelect = (item) => {
     if (multi) {
       let newSelectedItems;
-      if (selectedItems.some((i) => getItemLabel(i) === label)) {
-        newSelectedItems = selectedItems.filter((i) => getItemLabel(i) !== label);
+      if (selectedItems.some((i) => getItemLabel(i) === getItemLabel(item))) {
+        newSelectedItems = selectedItems.filter(
+          (i) => getItemLabel(i) !== getItemLabel(item)
+        );
       } else {
         newSelectedItems = [...selectedItems, item];
       }
-      setSelectedItems(newSelectedItems);
-      if (onSelect) onSelect(newSelectedItems);
+      onSelect?.(newSelectedItems);
     } else {
-      setSelectedItems([item]);
-      setIsOpen(false);
-      if (onSelect) onSelect(item);
+      onSelect?.(item);
+      onToggle();
     }
   };
 
@@ -106,7 +50,7 @@ const Dropdown = ({ label, items = [], onSelect, multi = false }) => {
 
   return (
     <div className={`dropdown ${isOpen ? "open" : ""}`}>
-      <div className="dropdown__header" onClick={() => setIsOpen(!isOpen)}>
+      <div className="dropdown__header" onClick={onToggle}>
         <span className="dropdown__header__label">{displayLabel()}</span>
         <img
           src="/icons/chevron-down.svg"
