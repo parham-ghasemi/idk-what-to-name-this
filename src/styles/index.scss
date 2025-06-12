@@ -1,0 +1,133 @@
+@use "./variables.scss" as *;
+
+* {
+  font-family: "Vazir", "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  *::-webkit-scrollbar {
+    width: 0.2em;
+  }
+
+  *::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  }
+
+  *::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: slategray;
+    outline: 1px solid slategrey;
+  }
+}
+
+body {
+  font-family: "Vazir", "Roboto", sans-serif;
+  background-color: $bg;
+  position: relative;
+}
+
+h1 {
+  font-family: "Vazir", "Roboto", sans-serif;
+  color: $primary;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Vazir", "Roboto", sans-serif;
+  color: $text;
+}
+
+img {
+  -drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+textarea {
+  resize: none;
+}
+
+input {
+  display: flex;
+  height: 100%;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  padding: 0 0.5rem;
+  font-size: 1rem;
+  font-weight: 400;
+  color: $text;
+
+  &::placeholder {
+    font-family: "Vazir";
+    font-size: 1rem;
+    font-weight: 500;
+    color: $light-text;
+  }
+}
+
+button {
+  font-family: "Vazir";
+  font-size: 1em;
+  font-weight: 500;
+  cursor: pointer;
+  outline: none;
+  background-color: transparent;
+  border: none;
+  height: 100%;
+}
+
+select {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background-image: url("/inspection/assets/ui/arrow-down.svg");
+  background-repeat: no-repeat;
+  background-position: left center;
+  outline: none;
+}
+
+input[checkbox] {
+  appearance: none;
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+hr {
+  width: 0;
+  height: 16px;
+  background-color: $text;
+}
+
+a {
+  text-decoration: none;
+}
+
+strong,
+label {
+  color: $text;
+}
+
+p {
+  color: $text;
+}
+
+span {
+  color: $light;
+}
+
+.css-19opgx6-MuiFormControlLabel-root {
+  margin: 0 !important;
+}

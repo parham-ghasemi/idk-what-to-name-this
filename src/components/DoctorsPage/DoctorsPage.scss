@@ -1,0 +1,21 @@
+@use "../../styles/variables.scss" as *;
+@use "../../styles/mixin.scss" as *;
+
+.doctors-page {
+  @include flex;
+  flex-direction: row-reverse;
+  align-items: start;
+  padding: 120px;
+  gap: 16px;
+  &__left{
+    @include col;
+    align-items: end;
+    gap: 16px;
+    width: 897px;
+  }
+  &__right{
+    width: 295px;
+    @include flex;
+    justify-content: end;
+  }
+}

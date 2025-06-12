@@ -1,0 +1,58 @@
+@use "../../../styles/variables.scss" as *;
+@use "../../../styles/mixin.scss" as *;
+.banner-card {
+  min-width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+
+  &__bg {
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    position: absolute;
+    z-index: 0;
+    width: 100%;
+    opacity: 0.7;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 16px;
+    gap: 16px;
+    height: 100%;
+    box-sizing: border-box;
+  }
+
+  &__title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #e82d1e;
+  }
+
+  &__desc {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+
+    &__p {
+      font-size: 18px;
+      font-weight: 500;
+      color: #ffffff;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    z-index: 2;
+    max-height: calc(100% - 32px); // protects from overflow
+  }
+}

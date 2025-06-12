@@ -1,0 +1,58 @@
+@use "../../../styles/variables.scss" as *;
+@use "../../../styles/mixin.scss" as *;
+
+.single-product-card {
+  width: 268px;
+  // height: 140px;
+  box-shadow: $card-shadow;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: end;
+  padding: 16px;
+  border-radius: 8px;
+
+  &__content {
+    @include flex;
+    align-items: center;
+    gap: 8px;
+
+    &__right {
+      @include col;
+      justify-content: space-between;
+      gap: 8px;
+
+      &__title {
+        font-size: 20px;
+        font-weight: 700;
+      }
+      &__description {
+        font-size: 14px;
+        font-weight: 700;
+        color: #b6b6b6;
+      }
+
+      &__button {
+        @include flex;
+        width: 109px;
+        flex-direction: row-reverse;
+        border: 1px solid #2c7bf3;
+        gap: 8px;
+        padding: 8px;
+        border-radius: 8px;
+        color: #2c7bf3;
+        font-size: 12px;
+        font-weight: 700;
+
+        &:hover {
+          background-color: #bed6fb;
+        }
+      }
+    }
+
+    // &__left {
+    //   @include flex;
+    //   align-self: flex-end;
+    // }
+  }
+}

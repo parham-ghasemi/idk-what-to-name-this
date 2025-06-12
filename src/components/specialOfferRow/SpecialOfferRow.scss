@@ -1,0 +1,71 @@
+@use "../../styles/variables.scss" as *;
+@use "../../styles/mixin.scss" as *;
+
+.special-offer-row-container {
+  width: 100%;
+  @include col;
+  gap: 24px;
+  padding: 24px;
+  overflow-x: hidden;
+  &__top-row {
+    @include flex;
+    justify-content: space-between;
+    &__title {
+      @include flex;
+      color: #131415;
+      font-size: 18px;
+      font-weight: 700;
+      gap: 8px;
+    }
+  }
+
+  &__content {
+    @include flex;
+    flex-direction: row-reverse;
+    gap: 24px;
+    &__right {
+      width: 708px;
+      @include col;
+      gap: 24px;
+      align-items: end;
+      &__top {
+        @include flex;
+        flex-direction: row-reverse;
+        width: 100%;
+        gap: 24px;
+        &__image {
+          position: relative;
+          background-color: #b52317;
+          height: 140px;
+          width: 140px;
+          @include col;
+          align-items: end;
+          justify-content: end;
+          padding: 16px;
+          border-radius: 8px;
+
+          img {
+            position: absolute;
+            top: 0;
+            left: 0;
+          }
+
+          &__top-text {
+            font-size: 20px;
+            font-weight: 700;
+            color: #ffffff;
+          }
+          &__bottom-text {
+            font-size: 20px;
+            font-weight: 400;
+            color: #ffffff;
+          }
+        }
+      }
+
+      &__bottom {
+        width: 100%;
+      }
+    }
+  }
+}

@@ -1,0 +1,83 @@
+@use "../../../styles/variables.scss" as *;
+@use "../../../styles/mixin.scss" as *;
+
+.category-card {
+  box-shadow: $card-shadow;
+  height: 296px;
+  width: 421px;
+  padding: 16px;
+  border-radius: 8px;
+
+  &__top {
+    @include col;
+    align-items: end;
+    gap: 16px;
+
+    &__text {
+      @include col;
+      align-items: end;
+      gap: 8px;
+
+      &__title {
+        font-size: 20px;
+        font-weight: 700;
+      }
+
+      &__description {
+        font-size: 14px;
+        font-weight: 700;
+        color: #b6b6b6;
+      }
+    }
+
+    &__button {
+      @include col-center;
+      gap: 8px;
+      padding: 8px;
+      color: #2c7bf3;
+      font-size: 12px;
+      font-weight: 700;
+      border: 1px solid #2c7bf3;
+      border-radius: 8px;
+      width: 109px;
+    }
+  }
+
+  &__bottom {
+    @include flex;
+    position: relative;
+    min-height: 136px;
+    align-items: end;
+
+    &__image-container1 {
+      width: fit-content;
+      height: 136px;
+      @include center-y;
+
+      &__img {
+        height: 100%;
+        width: auto;
+      }
+    }
+    &__image-container2 {
+      width: fit-content;
+      height: 109px;
+      @include center-y;
+
+      &__img {
+        height: 100%;
+        width: auto;
+      }
+    }
+    &__image-container3 {
+      width: fit-content;
+      height: 86px;
+      @include center-y;
+
+      &__img {
+        height: 100%;
+        width: auto;
+      }
+    }
+  }
+}

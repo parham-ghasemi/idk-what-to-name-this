@@ -1,0 +1,76 @@
+@use "../../../../styles/variables.scss" as *;
+@use "../../../../styles/mixin.scss" as *;
+
+.tab-and-sort-container {
+  width: 828px;
+  height: 117px;
+  box-shadow: $card-shadow;
+  border-radius: 14px;
+  padding: 8px 17px;
+  gap: 16px;
+
+  @include col-center;
+
+  &__tab-container {
+    @include flex;
+    flex-direction: row-reverse;
+    width: fit-content;
+    overflow: hidden;
+    &__tab {
+      @include flex;
+      justify-content: center;
+      width: 108px;
+      height: 48px;
+      border: 1px solid #2c7bf3;
+      gap: 8px;
+      cursor: pointer;
+
+      &__text {
+        color: black;
+      }
+      &.active {
+        background-color: #2c7bf3;
+        p {
+          color: #fff;
+        }
+      }
+      &.first {
+        border-radius: 0 100px 100px 0;
+      }
+      &.last {
+        border-radius: 100px 0 0 100px;
+      }
+    }
+  }
+
+  &__sort-container {
+    @include flex;
+    flex-direction: row-reverse;
+    width: 100%;
+    gap: 18px;
+
+    &__sort-title {
+      @include flex;
+      flex-direction: row-reverse;
+      gap: 8px;
+    }
+
+    &__sort-options {
+      @include flex;
+      gap: 18px;
+      flex-direction: row-reverse;
+      &__option {
+        cursor: pointer;
+        font-weight: 400;
+        font-size: 16px;
+
+        &:hover {
+          color: #2c7bf3;
+        }
+        &.active {
+          color: #2c7bf3;
+        }
+      }
+    }
+  }
+}

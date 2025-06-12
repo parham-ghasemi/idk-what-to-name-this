@@ -1,0 +1,58 @@
+@use "../../../styles/variables.scss" as *;
+@use "../../../styles/mixin.scss" as *;
+
+.card {
+  height: 308px;
+  width: 200px;
+  border-radius: 16px;
+  box-shadow: $card-shadow;
+  @include col-center;
+  padding:  16px;
+
+  &__img {
+    height: 120px;
+    width: 120px;
+    border-radius: 8px;
+  }
+
+  &__body {
+    @include col-center;
+    gap: 8px;
+
+    &__title {
+      font-size: 16px;
+    }
+
+    &__translated-title {
+      font-size: 14px;
+      color: #b6b6b6;
+    }
+
+    &__price {
+      @include flex;
+      gap: 8px;
+      font-size: 16px;
+      color: #2c7bf3;
+
+      &__currency {
+        color: #2c7bf3;
+      }
+    }
+
+    &__button {
+      @include flex;
+      flex-direction: row-reverse;
+      border: 1px solid #2c7bf3;
+      gap: 8px;
+      padding: 8px;
+      border-radius: 8px;
+      color: #2c7bf3;
+      font-size: 12px;
+      font-weight: 700;
+
+      &:hover {
+        background-color: #bed6fb;
+      }
+    }
+  }
+}

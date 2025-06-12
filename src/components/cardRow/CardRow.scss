@@ -1,0 +1,29 @@
+@use "../../styles/variables.scss" as *;
+@use "../../styles/mixin.scss" as *;
+
+.card-row-container {
+  box-sizing: border-box;
+  width: 100%;
+  @include col;
+  gap: 24px;
+  padding: 24px;
+  &__top-row {
+    @include flex;
+    justify-content: space-between;
+    &__title {
+      @include flex;
+      // justify-content: end;
+      color: #131415;
+      font-size: 18px;
+      font-weight: 700;
+      gap: 8px;
+    }
+  }
+  &__card-row {
+    // @include flex;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+}

@@ -1,0 +1,203 @@
+@use "../../../../styles/variables.scss" as *;
+@use "../../../../styles/mixin.scss" as *;
+
+.doctor-card {
+  width: 897px;
+  height: 265px;
+  box-shadow: $card-shadow;
+  border-radius: 16px;
+  padding: 16px;
+  gap: 15px;
+  @include flex;
+  justify-content: end;
+  align-items: start;
+  flex-direction: row-reverse;
+
+  &__right {
+    @include col;
+    gap: 16px;
+    &__top {
+      @include flex;
+      gap: 12px;
+      justify-content: end;
+      flex-direction: row-reverse;
+
+      &__image {
+        height: 80px;
+        width: 80px;
+        position: relative;
+        &__doctors-image {
+          height: 100%;
+          object-fit: cover;
+          border-radius: 8px;
+        }
+
+        &__online-status {
+          position: absolute;
+          top: 0;
+          right: 0;
+          transform: translate(25%, -25%);
+        }
+
+        &__messages {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          transform: translate(-25%, 25%);
+        }
+      }
+
+      &__text {
+        @include col;
+        align-items: end;
+        text-align: end;
+        gap: 8px;
+        color: #131415;
+        &__name {
+          font-size: 14px;
+          font-weight: 500;
+        }
+
+        &__specialty {
+          color: #424344;
+          font-weight: 400;
+          font-size: 14px;
+        }
+      }
+    }
+
+    &__bottom {
+      @include col;
+      align-items: end;
+      gap: 16px;
+
+      &__rating-container {
+        @include flex;
+        flex-direction: row-reverse;
+        gap: 6px;
+
+        &__rating {
+          color: #131415;
+          font-weight: 500;
+          font-size: 14px;
+        }
+
+        &__rater {
+          font-size: 14px;
+          font-weight: 400;
+          color: #929292;
+        }
+      }
+
+      &__tags-container {
+        @include flex;
+        gap: 4px;
+        &__tag {
+          padding: 5px 8px;
+          color: #2a602c;
+          background-color: #c8e6c9;
+          border-radius: 99px;
+          font-size: 12px;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+
+  &__separator {
+    width: 1px;
+    height: 233px;
+    background-color: #dfe9ff;
+  }
+
+  &__left {
+    @include col;
+    align-items: center;
+    width: 100%;
+    gap: 16px;
+
+    &__tabs-container {
+      width: fit-content;
+      height: fit-content;
+      border-radius: 16px;
+      overflow: hidden;
+      @include flex;
+      flex-direction: row-reverse;
+
+      &__tab {
+        height: 48px;
+        width: 112px;
+        @include flex;
+        justify-content: center;
+        background-color: #f2f4f7;
+        color: #767a8c;
+        position: relative;
+        font-size: 14px;
+        font-weight: 400;
+
+        &.selected {
+          background-color: #dfe9ff;
+          color: #2c7bf3;
+
+          &::after {
+            content: "";
+            width: 27px;
+            height: 3px;
+            background-color: #2c7bf3;
+            border-radius: 100px 100px 0 0;
+            position: absolute;
+            bottom: 0;
+          }
+        }
+
+        &:hover {
+          cursor: pointer;
+          background-color: #dfe9ff;
+          color: #2c7bf3;
+        }
+      }
+    }
+
+    &__tab-content {
+      @include col;
+      gap: 16px;
+      &__address-container {
+        padding: 8px;
+        width: 626px;
+        min-height: 48px;
+        @include flex;
+        flex-direction: row-reverse;
+        gap: 8px;
+        background-color: #F6F8FA;
+        border: 1px solid #DFE9FF;
+        border-radius: 8px;
+
+        &__address {
+          direction: rtl;
+          width: 425px;
+          font-weight: 500;
+          font-size: 14px;
+          color: #000;
+          text-wrap: nowrap;
+          overflow: hidden;
+          white-space: nowrap;
+          text-align: end;
+          text-overflow: ellipsis;
+        }
+
+        &__button {
+          font-weight: 500;
+          font-size: 14px;
+          color: #ffffff;
+          padding: 6px 24px;
+          background-color: #2C7BF3;
+          border-radius: 8px;
+        }
+      }
+    }
+  }
+}
+
+.tab-content {
+  color: black;
+}
