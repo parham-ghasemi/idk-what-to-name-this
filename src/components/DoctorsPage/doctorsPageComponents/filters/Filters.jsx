@@ -1,5 +1,14 @@
 import { useState } from "react";
 import Dropdown from "./dropDown/DropDown";
+import {
+  areaOptions,
+  serviceOptions,
+  specialtyOptions,
+  insuranceOptions,
+  cityOptions,
+  doctorDetailsOptions,
+  academicRankOptions,
+} from "./dropDownOptions";
 import "./Filters.scss";
 
 export const Filters = () => {
@@ -12,70 +21,6 @@ export const Filters = () => {
   const [selectedAcademicRank, setSelectedAcademicRank] = useState([]);
   const [selectedInsurance, setSelectedInsurance] = useState("");
   const [selectedDoctorDetails, setSelectedDoctorDetails] = useState("");
-
-  const specialtyOptions = ["کودکان", "داخلی", "قلب", "چشم", "زنان و زایمان"];
-  const serviceOptions = [
-    "نوبت حضوری",
-    "مشاوره تلفنی",
-    "ویزیت آنلاین",
-    "دریافت نسخه",
-    "آزمایش در منزل",
-    "ارسال مدارک",
-    "پشتیبانی",
-  ];
-  const cityOptions = [
-    "تهران",
-    "اصفهان",
-    "مشهد",
-    "شیراز",
-    "تبریز",
-    "اهواز",
-    "رشت",
-  ];
-  const academicRankOptions = ["استاد", "دانشیار", "استادیار", "پزشک عمومی"];
-  const insuranceOptions = [
-    { label: "تأمین اجتماعی", image: "/icons/taamin.svg" },
-    { label: "سلامت", image: "/icons/salamat.svg" },
-    { label: "آتیه‌سازان", image: "/icons/atiyeh.svg" },
-    { label: "بانک‌ها", image: "/icons/bank.svg" },
-  ];
-
-  const doctorDetailsOptions = [
-    "دارای مطب",
-    "دارای نسخه الکترونیک",
-    "دارای ویزیت آنلاین",
-  ];
-
-  const areaOptions = [
-    {
-      name: "تهران",
-      areas: ["مرزداران", "ونک", "پاسداران", "سعادت‌آباد", "تهرانپارس"],
-    },
-    {
-      name: "اصفهان",
-      areas: [
-        "سپاهان‌شهر",
-        "عباس‌آباد",
-        "خانه‌اصفهان",
-        "احمدآباد",
-        "حکیم‌نظامی",
-      ],
-    },
-    {
-      name: "مشهد",
-      areas: ["احمدآباد", "بلوار سجاد", "الهیه", "قاسم‌آباد", "وکیل‌آباد"],
-    },
-    {
-      name: "شیراز",
-      areas: ["قصرالدشت", "معالی‌آباد", "فرزانگان", "زرهی", "بلوار جمهوری"],
-    },
-    { name: "تبریز", areas: ["ولیعصر", "خیام", "شاه‌گلی", "باغمیشه", "منجم"] },
-    { name: "اهواز", areas: ["کیانپارس", "پاداد", "زیتون", "کوروش", "گلستان"] },
-    {
-      name: "رشت",
-      areas: ["گلسار", "معلم", "رشت‌نو", "سبزه‌میدان", "ساغریسازان"],
-    },
-  ];
 
   const selectedFilters = [
     selectedSpecialty,

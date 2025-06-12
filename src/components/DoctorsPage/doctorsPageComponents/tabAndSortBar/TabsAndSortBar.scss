@@ -26,7 +26,9 @@
       cursor: pointer;
 
       &__text {
-        color: black;
+        color: #2C7BF3;
+        font-weight: 500;
+        font-size: 14px;
       }
       &.active {
         background-color: #2c7bf3;
