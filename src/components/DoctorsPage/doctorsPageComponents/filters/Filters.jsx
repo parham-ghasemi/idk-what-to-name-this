@@ -10,6 +10,7 @@ import {
   academicRankOptions,
 } from "./dropDownOptions";
 import "./Filters.scss";
+import FilterMap from "./map/FilterMap";
 
 const labelMap = {
   male: "مرد",
@@ -209,6 +210,10 @@ export const Filters = () => {
           isOpen={openDropdown === "details"}
           onToggle={() => toggleDropdown("details")}
         />
+      </div>
+
+      <div className="filters__map">
+        <FilterMap />
       </div>
     </div>
   );
