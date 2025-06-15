@@ -171,14 +171,14 @@ export const Filters = () => {
         </div>
 
         <div className="filters__content__online-switch">
-          <label className="label">
+          <label className="filters__content__online-switch__label">
             <input
               type="checkbox"
-              className="checkbox"
               checked={onlyOnline}
               onChange={() => setOnlyOnline(!onlyOnline)}
             />
-            فقط پزشکان آنلاین
+            <span className="switch-slider" />
+            <span className="switch-text">فقط پزشکان آنلاین</span>
           </label>
         </div>
 
