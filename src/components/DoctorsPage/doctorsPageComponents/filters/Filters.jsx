@@ -11,6 +11,12 @@ import {
 } from "./dropDownOptions";
 import "./Filters.scss";
 
+const labelMap = {
+  male: "مرد",
+  female: "زن",
+  "only-online": "فقط پزشکان آنلاین",
+};
+
 export const Filters = () => {
   const [selectedCity, setSelectedCity] = useState("");
   const [selectedArea, setSelectedArea] = useState("");
@@ -28,15 +34,24 @@ export const Filters = () => {
   };
 
   const selectedFilters = [
-    selectedSpecialty,
-    selectedServices,
-    selectedCity.label || "",
-    selectedArea,
-    ...selectedAcademicRank,
-    selectedInsurance.label || "",
-    selectedDoctorDetails,
-    onlyOnline ? "only-online" : "",
-    gender === "male" ? "male" : gender === "female" ? "female" : "",
+    selectedSpecialty && { value: selectedSpecialty, label: selectedSpecialty },
+    selectedServices && { value: selectedServices, label: selectedServices },
+    selectedCity.label && {
+      value: selectedCity.label,
+      label: selectedCity.label,
+    },
+    selectedArea && { value: selectedArea, label: selectedArea },
+    ...selectedAcademicRank.map((item) => ({ value: item, label: item })),
+    selectedInsurance.label && {
+      value: selectedInsurance.label,
+      label: selectedInsurance.label,
+    },
+    selectedDoctorDetails && {
+      value: selectedDoctorDetails,
+      label: selectedDoctorDetails,
+    },
+    onlyOnline && { value: "only-online", label: labelMap["only-online"] },
+    gender && { value: gender, label: labelMap[gender] },
   ].filter(Boolean);
 
   const handleRemoveFilter = (filter) => {
@@ -76,13 +91,13 @@ export const Filters = () => {
         <div className="filters__top-card__separator"></div>
 
         <div className="filters__top-card__selected">
-          {selectedFilters.map((filter, index) => (
+          {selectedFilters.map(({ value, label }, index) => (
             <div key={index} className="filters__top-card__selected__item">
-              <p>{filter}</p>
+              <p>{label}</p>
               <img
                 src="/icons/close.svg"
                 alt="delete filter"
-                onClick={() => handleRemoveFilter(filter)}
+                onClick={() => handleRemoveFilter(value)}
               />
             </div>
           ))}
