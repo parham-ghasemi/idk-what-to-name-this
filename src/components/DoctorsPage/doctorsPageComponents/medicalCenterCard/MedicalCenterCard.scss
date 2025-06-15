@@ -1,0 +1,223 @@
+@use "../../../../styles/variables.scss" as *;
+@use "../../../../styles/mixin.scss" as *;
+
+.medical-center-card {
+  width: 895px;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: $card-shadow;
+  gap: 16px;
+  flex-direction: row-reverse;
+
+  @include flex;
+  justify-content: end;
+
+  &__right {
+    @include col;
+    align-items: end;
+    width: 282px;
+    height: 168px;
+    gap: 16px;
+    &__top {
+      @include flex;
+      flex-direction: row-reverse;
+      gap: 12px;
+      img {
+        width: 52px;
+        height: 52px;
+      }
+
+      &__title {
+        @include col;
+        align-items: end;
+        text-align: end;
+        gap: 8px;
+        a {
+          display: flex;
+          gap: 8px;
+          align-items: center;
+          p {
+            font-size: 14px;
+            font-weight: 600;
+          }
+          img {
+            height: 18px;
+            width: 18px;
+            opacity: 0;
+            transform: translateX(20px);
+
+            transition: all ease-in 200ms;
+          }
+
+          &:hover img {
+            opacity: 1;
+            transform: translateX(0);
+          }
+          &:hover p {
+            color: #2c7bf3;
+            box-shadow: 0px 1px 0px 0px #2c7bf3;
+          }
+        }
+        p {
+          font-size: 14px;
+          font-weight: 400;
+        }
+      }
+    }
+
+    &__tags {
+      @include col;
+      align-items: end;
+      gap: 16px;
+      &__appointment-kind {
+        color: #ef5da8;
+        background-color: #fcddec;
+        padding: 5px 8px;
+        border-radius: 16px;
+        font-size: 12px;
+        font-weight: 400;
+      }
+
+      &__rating-container {
+        @include flex;
+        flex-direction: row-reverse;
+        gap: 6px;
+
+        &__rating {
+          color: #131415;
+          font-size: 14px;
+          font-weight: 500px;
+        }
+
+        &__review-number {
+          color: #929292;
+          font-weight: 400;
+          font-size: 14px;
+        }
+      }
+
+      &__hospital-tags {
+        @include flex;
+        flex-direction: row-reverse;
+        gap: 4px;
+
+        &__tag {
+          color: #2a602c;
+          font-weight: 400;
+          font-size: 12px;
+          background-color: #c8e6c9;
+          padding: 5px 8px;
+          border-radius: 16px;
+        }
+      }
+    }
+  }
+
+  &__separator {
+    background-color: #dfe9ff;
+    height: 168px;
+    width: 1px;
+  }
+
+  &__left {
+    width: 549px;
+    @include col;
+    align-items: end;
+    gap: 15px;
+    &__address {
+      width: 100%;
+      @include flex;
+      flex-direction: row-reverse;
+      gap: 4px;
+
+      p {
+        text-wrap: nowrap;
+        overflow: hidden;
+        white-space: nowrap;
+        text-align: end;
+        direction: rtl;
+        text-overflow: ellipsis;
+        color: #131415;
+        font-size: 14px;
+        font-weight: 500;
+      }
+    }
+
+    &__appointment {
+      @include flex;
+      justify-content: space-between;
+      flex-direction: row-reverse;
+      width: 100%;
+
+      &__working-hours {
+        @include flex;
+        gap: 10px;
+
+        &__item {
+          @include flex;
+          gap: 4px;
+
+          p {
+            font-weight: 500;
+            font-size: 14px;
+            color: #767a8c;
+          }
+        }
+      }
+
+      &__btn {
+        color: #fff;
+        font-size: 14px;
+        font-weight: 500;
+
+        padding: 8px 16px;
+        background-color: #2c7bf3;
+        border-radius: 8px;
+      }
+    }
+
+    &__separator {
+      width: 549px;
+      height: 1px;
+      border-bottom: dashed 1px #bed6fb;
+    }
+
+    &__departments {
+      display: flex;
+      align-items: center;
+      flex-direction: row-reverse;
+      gap: 6px;
+
+      &__title {
+        color: #767a8c;
+        font-size: 14px;
+        font-weight: 500;
+      }
+      &__body {
+        font-size: 14px;
+        font-weight: 500;
+        color: #000;
+      }
+    }
+    &__specialServices {
+      display: flex;
+      align-items: center;
+      flex-direction: row-reverse;
+      gap: 6px;
+      &__title {
+        color: #767a8c;
+        font-size: 14px;
+        font-weight: 500;
+      }
+      &__body {
+        color: #2c7bf3;
+        font-size: 14px;
+        font-weight: 500;
+
+        background-color: #e6ebf5;
+        padding: 2px 8px;
+        border-radius: 16px;
+      }
+    }
+  }
+}
