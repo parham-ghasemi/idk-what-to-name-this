@@ -5,7 +5,9 @@
   @include flex;
   flex-direction: row-reverse;
   align-items: start;
-  padding: 120px;
+  padding-top: 120px;
+  width: 100vw;
+  justify-content: center;
   gap: 16px;
   &__left{
     @include col;

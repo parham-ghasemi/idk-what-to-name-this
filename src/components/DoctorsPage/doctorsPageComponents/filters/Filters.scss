@@ -14,8 +14,8 @@
     min-height: 117px;
     width: 100%;
     border-radius: 16px;
-    justify-content: space-evenly;
     padding: 18px;
+    gap: 8px;
 
     &__header {
       @include flex;

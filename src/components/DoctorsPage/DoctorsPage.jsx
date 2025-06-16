@@ -18,11 +18,15 @@ const DoctorsPage = () => {
         <TabAndSortBar updateTab={setActiveTab} />
         {activeTab === "All" ? (
           doctors.map((doctor, index) => (
-            <DoctorCard key={index} doctor={doctor} />
+            <DoctorCard key={`all-${index}`} doctor={doctor} initialTabIndex={0} />
           ))
         ) : activeTab === "Clinics" ? (
           hospitals.map((hospital, index) => (
-            <MedicalCenterCard hospital={hospital} />
+            <MedicalCenterCard key={index} hospital={hospital} />
+          ))
+        ) : activeTab === "Online" ? (
+          doctors.map((doctor, index) => (
+            <DoctorCard key={`online-${index}`} doctor={doctor} initialTabIndex={1} />
           ))
         ) : (
           <p>{activeTab}</p>

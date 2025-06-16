@@ -1,10 +1,9 @@
 import { useState } from "react";
 import "./DoctorCard.scss";
 
-
-const DoctorCard = ({doctor}) => {
+const DoctorCard = ({ doctor, initialTabIndex }) => {
   // State to track the selected tab index
-  const [selectedTabIndex, setSelectedTabIndex] = useState(0);
+  const [selectedTabIndex, setSelectedTabIndex] = useState(initialTabIndex);
 
   // Function to handle tab selection
   const handleTabClick = (index) => {
@@ -98,8 +97,9 @@ const DoctorCard = ({doctor}) => {
                   <p className="doctor-card__left__tab-content__address-container__address">
                     {address}
                   </p>
-                  <button className="doctor-card__left__tab-content__address-container__button">مشاهده نوبت‌ها</button>
-
+                  <button className="doctor-card__left__tab-content__address-container__button">
+                    مشاهده نوبت‌ها
+                  </button>
                 </div>
               )
             )
