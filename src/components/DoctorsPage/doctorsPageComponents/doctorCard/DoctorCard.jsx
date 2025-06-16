@@ -2,10 +2,8 @@ import { useState } from "react";
 import "./DoctorCard.scss";
 
 const DoctorCard = ({ doctor, initialTabIndex }) => {
-  // State to track the selected tab index
   const [selectedTabIndex, setSelectedTabIndex] = useState(initialTabIndex);
 
-  // Function to handle tab selection
   const handleTabClick = (index) => {
     setSelectedTabIndex(index);
   };
@@ -78,7 +76,7 @@ const DoctorCard = ({ doctor, initialTabIndex }) => {
               className={`doctor-card__left__tabs-container__tab ${
                 selectedTabIndex === index ? "selected" : ""
               }`}
-              onClick={() => handleTabClick(index)} // Update the selected tab
+              onClick={() => handleTabClick(index)} 
             >
               {tab.title}
             </div>

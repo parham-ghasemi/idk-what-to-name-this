@@ -8,6 +8,7 @@ export const doctors = [
     tabs: [
       {
         title: "مطب",
+        type: "clinic",
         content: {
           title: "clinic",
           addresses: [
@@ -16,9 +17,21 @@ export const doctors = [
           ],
         },
       },
-      { title: "نوبت آنلاین", content: "Content for نوبت آنلاین" },
-      { title: "نوبت تلفنی", content: "Content for نوبت تلفنی" },
-      { title: "مرکز درمانی", content: "Content for مرکز درمانی" },
+      {
+        title: "نوبت آنلاین",
+        type: "Online",
+        content: "Content for نوبت آنلاین",
+      },
+      {
+        title: "نوبت تلفنی",
+        type: "Phone",
+        content: "Content for نوبت تلفنی",
+      },
+      {
+        title: "مرکز درمانی",
+        type: "treatment-center",
+        content: "Content for مرکز درمانی",
+      },
     ],
   },
   {
@@ -30,6 +43,7 @@ export const doctors = [
     tabs: [
       {
         title: "مطب",
+        type: "clinic",
         content: {
           title: "clinic",
           addresses: [
@@ -38,7 +52,11 @@ export const doctors = [
           ],
         },
       },
-      { title: "مرکز درمانی", content: "Content for مرکز درمانی" },
+      {
+        title: "مرکز درمانی",
+        type: "treatment-center",
+        content: "Content for مرکز درمانی",
+      },
     ],
   },
   {
@@ -50,6 +68,7 @@ export const doctors = [
     tabs: [
       {
         title: "مطب",
+        type: "clinic",
         content: {
           title: "clinic",
           addresses: [
@@ -58,8 +77,16 @@ export const doctors = [
           ],
         },
       },
-      { title: "نوبت آنلاین", content: "Content for نوبت آنلاین" },
-      { title: "نوبت تلفنی", content: "Content for نوبت تلفنی" },
+      {
+        title: "نوبت آنلاین",
+        type: "Online",
+        content: "Content for نوبت آنلاین",
+      },
+      {
+        title: "نوبت تلفنی",
+        type: "Phone",
+        content: "Content for نوبت تلفنی",
+      },
     ],
   },
   {
@@ -71,6 +98,7 @@ export const doctors = [
     tabs: [
       {
         title: "مطب",
+        type: "clinic",
         content: {
           title: "clinic",
           addresses: [
@@ -79,8 +107,16 @@ export const doctors = [
           ],
         },
       },
-      { title: "نوبت آنلاین", content: "Content for نوبت آنلاین" },
-      { title: "نوبت تلفنی", content: "Content for نوبت تلفنی" },
+      {
+        title: "نوبت آنلاین",
+        type: "Online",
+        content: "Content for نوبت آنلاین",
+      },
+      {
+        title: "نوبت تلفنی",
+        type: "Phone",
+        content: "Content for نوبت تلفنی",
+      },
     ],
   },
 ];
