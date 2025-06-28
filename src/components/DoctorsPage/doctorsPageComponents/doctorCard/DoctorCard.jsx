@@ -76,7 +76,7 @@ const DoctorCard = ({ doctor, initialTabIndex }) => {
               className={`doctor-card__left__tabs-container__tab ${
                 selectedTabIndex === index ? "selected" : ""
               }`}
-              onClick={() => handleTabClick(index)} 
+              onClick={() => handleTabClick(index)}
             >
               {tab.title}
             </div>
@@ -84,11 +84,11 @@ const DoctorCard = ({ doctor, initialTabIndex }) => {
         </div>
 
         <div className="doctor-card__left__tab-content">
-          {doctor.tabs[selectedTabIndex].content.title === "clinic" ? (
+          {doctor.tabs[selectedTabIndex].type === "clinic" ? (
             doctor.tabs[selectedTabIndex].content.addresses.map(
               (address, index) => (
                 <div
-                  key={index}
+                  key={`address-${index}`}
                   className="doctor-card__left__tab-content__address-container"
                 >
                   <img src="/icons/location.svg" alt="" />
@@ -101,6 +101,46 @@ const DoctorCard = ({ doctor, initialTabIndex }) => {
                 </div>
               )
             )
+          ) : doctor.tabs[selectedTabIndex].type === "Online" ? (
+            <div className="doctor-card__left__tab-content__online-appointments-container">
+              <div className="doctor-card__left__tab-content__online-appointments-container__cards-container">
+                {doctor.tabs[selectedTabIndex].content.appointments.map(
+                  (appointment, index) => (
+                    <div
+                      className="doctor-card__left__tab-content__online-appointments-container__cards-container__card"
+                      key={`appointment-${index}`}
+                    >
+                      <p className="doctor-card__left__tab-content__online-appointments-container__cards-container__card__week-day">
+                        {appointment.weekDay}
+                      </p>
+                      <p className="doctor-card__left__tab-content__online-appointments-container__cards-container__card__date">
+                        {appointment.date}
+                      </p>
+                      <p className="doctor-card__left__tab-content__online-appointments-container__cards-container__card__number-of-appointments">
+                        {appointment.numberOfappointments > 1 ? (
+                          <>
+                            {appointment.numberOfappointments}
+                            <span>نوبت</span>
+                          </>
+                        ) : (
+                          "-"
+                        )}
+                      </p>
+                    </div>
+                  )
+                )}
+              </div>
+              <div className="doctor-card__left__tab-content__online-appointments-container__bottom">
+                <div className="doctor-card__left__tab-content__online-appointments-container__bottom__closest-appointment">
+                  <img src="/icons/arrow-left2.svg" alt="arrow" />
+                  برو به نزدیک‌ترین نوبت
+                </div>
+                <div className="doctor-card__left__tab-content__online-appointments-container__bottom__more">
+                  <img src="/icons/more.svg" alt="more" />
+                  مشاهده بیشتر
+                </div>
+              </div>
+            </div>
           ) : (
             // temporary
             <p className="tab-content">

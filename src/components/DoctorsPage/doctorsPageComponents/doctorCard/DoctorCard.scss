@@ -161,6 +161,7 @@
     &__tab-content {
       @include col;
       gap: 16px;
+      width: 100%;
       &__address-container {
         padding: 8px;
         width: 626px;
@@ -168,8 +169,8 @@
         @include flex;
         flex-direction: row-reverse;
         gap: 8px;
-        background-color: #F6F8FA;
-        border: 1px solid #DFE9FF;
+        background-color: #f6f8fa;
+        border: 1px solid #dfe9ff;
         border-radius: 8px;
 
         &__address {
@@ -190,8 +191,77 @@
           font-size: 14px;
           color: #ffffff;
           padding: 6px 24px;
-          background-color: #2C7BF3;
+          background-color: #2c7bf3;
           border-radius: 8px;
+        }
+      }
+
+      &__online-appointments-container {
+        width: 100%;
+        @include flex;
+        justify-content: space-between;
+        flex-direction: column;
+        gap: 35px;
+
+        &__cards-container {
+          width: 100%;
+          @include flex;
+          flex-direction: row-reverse;
+          justify-content: space-between;
+          &__card {
+            width: 72px;
+            height: 94px;
+            border-radius: 8px;
+            border: 1px solid #2b7bf4;
+            @include col;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            cursor: pointer;
+
+            &__week-day {
+              color: #292929;
+              font-size: 14px;
+              font-weight: 400;
+            }
+            &__date {
+              color: #2b7bf4;
+              font-size: 14px;
+              font-weight: 700;
+            }
+            &__number-of-appointments {
+              color: #909193;
+              font-size: 12px;
+              font-weight: 500;
+              @include flex;
+              flex-direction: row-reverse;
+            }
+          }
+        }
+        &__bottom {
+          width: 100%;
+          @include flex;
+          justify-content: space-between;
+          flex-direction: row-reverse;
+
+          &__closest-appointment {
+            @include flex;
+            font-size: 14px;
+            font-weight: 500;
+            color: #2C7BF3;
+            gap: 8px;
+            cursor: pointer
+          }
+
+          &__more {
+            @include flex;
+            color: #2C7BF3;
+            gap: 8px;
+            padding: 10px 16px;
+            border: 1px solid #2C7BF3;
+            border-radius: 8px;
+            cursor: pointer;
+          }
         }
       }
     }

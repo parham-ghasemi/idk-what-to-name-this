@@ -10,7 +10,6 @@ export const doctors = [
         title: "مطب",
         type: "clinic",
         content: {
-          title: "clinic",
           addresses: [
             "آدرس: تهران - تهران، بلوار شهران شمالی، بالاتر از فلکه دوم شهران، بعد از مسجد امام علی، ساختمان داروخانه شبانه روزی دکتر کریمان، طبقه سوم، بلوک شرقی، واحد 31",
             "آدرس: تهران - تهران، بلوار شهران شمالی، بالاتر از فلکه دوم شهران، بعد از مسجد امام علی، ساختمان داروخانه شبانه روزی دکتر کریمان، طبقه سوم، بلوک شرقی، واحد 31",
@@ -20,7 +19,17 @@ export const doctors = [
       {
         title: "نوبت آنلاین",
         type: "Online",
-        content: "Content for نوبت آنلاین",
+        content: {
+          appointments: [
+            { weekDay: "شنبه", date: "2/26", numberOfappointments: "12" },
+            { weekDay: "یکشنبه", date: "2/27", numberOfappointments: "12" },
+            { weekDay: "دوشنبه", date: "2/28", numberOfappointments: "0" },
+            { weekDay: "سه‌شنبه", date: "2/29", numberOfappointments: "12" },
+            { weekDay: "چهارشنبه", date: "2/30", numberOfappointments: "0" },
+            { weekDay: "پنجشنبه", date: "2/31", numberOfappointments: "12" },
+            { weekDay: "جمعه", date: "3/1", numberOfappointments: "12" },
+          ]
+        },
       },
       {
         title: "نوبت تلفنی",
@@ -80,7 +89,17 @@ export const doctors = [
       {
         title: "نوبت آنلاین",
         type: "Online",
-        content: "Content for نوبت آنلاین",
+        content: {
+          appointments: [
+            { weekDay: "شنبه", date: "2/26", numberOfappointments: "12" },
+            { weekDay: "یکشنبه", date: "2/27", numberOfappointments: "12" },
+            { weekDay: "دوشنبه", date: "2/28", numberOfappointments: "0" },
+            { weekDay: "سه‌شنبه", date: "2/29", numberOfappointments: "12" },
+            { weekDay: "چهارشنبه", date: "2/30", numberOfappointments: "0" },
+            { weekDay: "پنجشنبه", date: "2/31", numberOfappointments: "12" },
+            { weekDay: "جمعه", date: "3/1", numberOfappointments: "12" },
+          ]
+        },
       },
       {
         title: "نوبت تلفنی",
@@ -110,7 +129,17 @@ export const doctors = [
       {
         title: "نوبت آنلاین",
         type: "Online",
-        content: "Content for نوبت آنلاین",
+        content: {
+          appointments: [
+            { weekDay: "شنبه", date: "2/26", numberOfappointments: "12" },
+            { weekDay: "یکشنبه", date: "2/27", numberOfappointments: "12" },
+            { weekDay: "دوشنبه", date: "2/28", numberOfappointments: "0" },
+            { weekDay: "سه‌شنبه", date: "2/29", numberOfappointments: "12" },
+            { weekDay: "چهارشنبه", date: "2/30", numberOfappointments: "0" },
+            { weekDay: "پنجشنبه", date: "2/31", numberOfappointments: "12" },
+            { weekDay: "جمعه", date: "3/1", numberOfappointments: "12" },
+          ]
+        },
       },
       {
         title: "نوبت تلفنی",
