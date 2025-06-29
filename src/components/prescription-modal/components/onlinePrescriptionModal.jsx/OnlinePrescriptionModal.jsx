@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Modal } from "../modal/Modal";
 import "./OnlinePrescriptionModal.scss";
 import { insuranceOptions } from "../../PrescriptionModalData";
+import Button from "../button/Button";
+import { Handler } from "leaflet";
 
 const steps = [
   {
@@ -28,12 +30,28 @@ const availablePharmacies = [
   {
     name: "داروخانه شماره یک",
     unAvailableDrugs: ["آموکسی سیلین 250"],
-    availableDrugs: ["استامینوفن 500", "قطره چشمی اشک مصنوعی سینا"],
+    availableDrugs: [
+      { name: "استامینوفن 500", price: 5000, amount: 30, use: "هر 8 ساعت" },
+      {
+        name: "قطره چشمی اشک مصنوعی سینا",
+        price: 5000,
+        amount: 30,
+        use: "هر 8 ساعت",
+      },
+    ],
   },
   {
     name: "داروخانه شماره دو",
     unAvailableDrugs: ["آموکسی سیلین 250"],
-    availableDrugs: ["استامینوفن 500", "قطره چشمی اشک مصنوعی سینا"],
+    availableDrugs: [
+      { name: "استامینوفن 500", price: 5000, amount: 30, use: "هر 8 ساعت" },
+      {
+        name: "قطره چشمی اشک مصنوعی سینا",
+        price: 5000,
+        amount: 30,
+        use: "هر 8 ساعت",
+      },
+    ],
   },
 ];
 
@@ -50,6 +68,57 @@ const OnlinePrescriptionModal = ({ isOpen, onClose }) => {
   const [onAvailablePharmacy, setOnAvailablePharmacy] = useState(false);
 
   const [selectedDrugs, setSelectedDrugs] = useState({});
+
+  const [chosenPharmacy, setChosenPharmacy] = useState(" داروخانه شماره یک");
+
+  const tableRows = Object.entries(selectedDrugs).flatMap(
+    ([pharmacyIndex, drugNames]) => {
+      const pharmacy = availablePharmacies[pharmacyIndex];
+      return drugNames
+        .map((drugName) => {
+          const drug = pharmacy.availableDrugs.find((d) => d.name === drugName);
+          if (!drug) return null;
+          return {
+            name: drug.name,
+            price: drug.price,
+            amount: drug.amount,
+            use: drug.use,
+          };
+        })
+        .filter(Boolean);
+    }
+  );
+
+  const totalPrice = tableRows.reduce(
+    (sum, row) => sum + row.price * row.amount,
+    0
+  );
+
+  // Sample logic: 20% insurance discount
+  const insuranceDiscount = selectedInsurance
+    ? Math.floor(totalPrice * 0.2)
+    : 0;
+
+  // Fixed shipping cost
+  const shippingCost = 45000;
+
+  // Final price
+  const finalPrice = totalPrice - insuranceDiscount + shippingCost;
+
+  const handleCancel = () => {
+    onClose();
+    setCurrentStepIndex(0);
+    setDropdownOpen(false);
+    setSelectedInsurance(null);
+    setNationalCode("");
+    setTrackingNumber("");
+    setDescription("");
+    setFoundPharmacy(true);
+    setFoundFullPrescription(false);
+    setOnAvailablePharmacy(false);
+    setSelectedDrugs({});
+    setChosenPharmacy(" داروخانه شماره یک");
+  };
 
   return (
     <div className="online-prescription-modal-container">
@@ -192,13 +261,8 @@ const OnlinePrescriptionModal = ({ isOpen, onClose }) => {
                 </div>
               </div>
 
-              <div className="online-prescription-modal-container__online-prescription-modal__button-container">
-                <button
-                  onClick={() => setCurrentStepIndex(1)}
-                  className="online-prescription-modal-container__online-prescription-modal__button-container__button"
-                >
-                  ثبت نسخه
-                </button>
+              <div className="button-container">
+                <Button onClick={() => setCurrentStepIndex(1)}>ثبت نسخه</Button>
               </div>
             </>
           )}
@@ -244,62 +308,35 @@ const OnlinePrescriptionModal = ({ isOpen, onClose }) => {
                 </p>
               </div>
 
-              <div className="online-prescription-modal-container__online-prescription-modal__button-container">
+              <div className="button-container">
                 {!trackingNumber || !nationalCode || !selectedInsurance ? (
                   <>
-                    <button
-                      onClick={() => setCurrentStepIndex(0)}
-                      className="online-prescription-modal-container__online-prescription-modal__button-container__button"
-                    >
+                    <Button onClick={() => setCurrentStepIndex(0)}>
                       ویرایش اطلاعات
-                    </button>
-                    <button
-                      onClick={onClose}
-                      className="online-prescription-modal-container__online-prescription-modal__button-container__button"
-                    >
-                      انصراف
-                    </button>
+                    </Button>
+                    <Button onClick={handleCancel}>انصراف</Button>
                   </>
                 ) : foundPharmacy ? (
                   foundFullPrescription ? (
-                    <button
-                      onClick={() => setCurrentStepIndex(2)}
-                      className="online-prescription-modal-container__online-prescription-modal__button-container__button"
-                    >
+                    <Button onClick={() => setCurrentStepIndex(2)}>
                       پشتیبانی
-                    </button>
+                    </Button>
                   ) : (
                     <>
-                      <button
-                        onClick={() => setOnAvailablePharmacy(true)}
-                        className="online-prescription-modal-container__online-prescription-modal__button-container__button"
-                      >
+                      <Button onClick={() => setOnAvailablePharmacy(true)}>
                         انتخاب داروخانه
-                      </button>
+                      </Button>
 
-                      <button
-                        onClick={onClose}
-                        className="online-prescription-modal-container__online-prescription-modal__button-container__button"
-                      >
-                        انصراف
-                      </button>
+                      <Button onClick={handleCancel}>انصراف</Button>
                     </>
                   )
                 ) : (
                   <>
-                    <button
-                      onClick={() => setCurrentStepIndex(2)}
-                      className="online-prescription-modal-container__online-prescription-modal__button-container__button"
-                    >
+                    <Button onClick={() => setCurrentStepIndex(2)}>
                       ویرایش آدرس
-                    </button>
+                    </Button>
 
-                    <button
-                      onClick={onClose}
-                      className="online-prescription-modal-container__online-prescription-modal__button-container__button"
-                    >
-                      انصراف
-                    </button>
+                    <Button onClick={handleCancel}>انصراف</Button>
                   </>
                 )}
               </div>
@@ -324,7 +361,10 @@ const OnlinePrescriptionModal = ({ isOpen, onClose }) => {
                     selectedDrugs[pharmacyIndex] || [];
                   const isPharmacySelected =
                     selectedForPharmacy.length ===
-                    pharmacy.availableDrugs.length;
+                      pharmacy.availableDrugs.length &&
+                    pharmacy.availableDrugs.every((drug) =>
+                      selectedForPharmacy.includes(drug.name)
+                    );
 
                   return (
                     <div
@@ -341,7 +381,7 @@ const OnlinePrescriptionModal = ({ isOpen, onClose }) => {
                             ...prev,
                             [pharmacyIndex]: allSelected
                               ? []
-                              : [...pharmacy.availableDrugs],
+                              : pharmacy.availableDrugs.map((d) => d.name),
                           }));
                         }}
                       >
@@ -372,7 +412,7 @@ const OnlinePrescriptionModal = ({ isOpen, onClose }) => {
                       <div className="online-prescription-modal-container__online-prescription-modal__available-pharmacies-container__card-container__card__bottom">
                         {pharmacy.availableDrugs.map((drug, drugIndex) => {
                           const isDrugSelected =
-                            selectedDrugs[pharmacyIndex]?.includes(drug) ??
+                            selectedDrugs[pharmacyIndex]?.includes(drug.name) ??
                             false;
 
                           return (
@@ -382,9 +422,9 @@ const OnlinePrescriptionModal = ({ isOpen, onClose }) => {
                               onClick={() => {
                                 setSelectedDrugs((prev) => {
                                   const prevDrugs = prev[pharmacyIndex] || [];
-                                  const newDrugs = prevDrugs.includes(drug)
-                                    ? prevDrugs.filter((d) => d !== drug)
-                                    : [...prevDrugs, drug];
+                                  const newDrugs = prevDrugs.includes(drug.name)
+                                    ? prevDrugs.filter((d) => d !== drug.name)
+                                    : [...prevDrugs, drug.name];
 
                                   return {
                                     ...prev,
@@ -401,7 +441,7 @@ const OnlinePrescriptionModal = ({ isOpen, onClose }) => {
                                 }
                                 alt="tick-square"
                               />
-                              <p>{drug}</p>
+                              <p>{drug.name}</p>
                             </div>
                           );
                         })}
@@ -409,26 +449,170 @@ const OnlinePrescriptionModal = ({ isOpen, onClose }) => {
                     </div>
                   );
                 })}
-                <div className="online-prescription-modal-container__online-prescription-modal__button-container">
-                  <button
-                    className="online-prescription-modal-container__online-prescription-modal__button-container__button"
-                    onClick={() => setCurrentStepIndex(2)}
-                  >
-                    تایید 
-                  </button>
-                  <button
-                    className="online-prescription-modal-container__online-prescription-modal__button-container__button"
-                    onClick={onClose}
-                  >
-                    انصراف
-                  </button>
+                <div className="button-container">
+                  <Button onClick={() => setCurrentStepIndex(2)}>تایید</Button>
+                  <Button onClick={handleCancel}>انصراف</Button>
                 </div>
               </div>
             </div>
           )}
 
           {currentStepIndex === 2 && (
-            <div>{/* Your final step content here */}</div>
+            <div className="online-prescription-modal-container__online-prescription-modal__last-page">
+              <p className="online-prescription-modal-container__online-prescription-modal__last-page__title">
+                تایید و پرداخت
+                <span>
+                  <img src="/icons/wallet-check.svg" alt="" />
+                </span>
+              </p>
+              <div className="online-prescription-modal-container__online-prescription-modal__last-page__body">
+                <p className="online-prescription-modal-container__online-prescription-modal__last-page__body__title">
+                  تایید شده توسط{}
+                  {`تایید شده توسط${chosenPharmacy}`}
+                  <span>
+                    <img src="/icons/check-box 1.svg" alt="check-box" />
+                  </span>
+                </p>
+                <div className="online-prescription-modal-container__online-prescription-modal__last-page__body__table-container">
+                  <div className="online-prescription-modal-container__online-prescription-modal__last-page__body__table-container__columns-layout">
+                    <div className="online-prescription-modal-container__online-prescription-modal__last-page__body__table-container__column">
+                      <div className="online-prescription-modal-container__online-prescription-modal__last-page__body__table-container__column__header">
+                        نام دارو
+                        <img src="/icons/medicine 1.svg" alt="icon" />
+                      </div>
+                      <div className="online-prescription-modal-container__online-prescription-modal__last-page__body__table-container__column__cells-container">
+                        {tableRows.map((row, i) => (
+                          <div
+                            key={`name-${i}`}
+                            className="online-prescription-modal-container__online-prescription-modal__last-page__body__table-container__column__cells-container__cell"
+                          >
+                            {row.name}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="online-prescription-modal-container__online-prescription-modal__last-page__body__table-container__column">
+                      <div className="online-prescription-modal-container__online-prescription-modal__last-page__body__table-container__column__header">
+                        قیمت
+                        <img src="/icons/medicines-time 1.svg" alt="icon" />
+                      </div>
+                      <div className="online-prescription-modal-container__online-prescription-modal__last-page__body__table-container__column__cells-container">
+                        {tableRows.map((row, i) => (
+                          <div
+                            key={`price-${i}`}
+                            className="online-prescription-modal-container__online-prescription-modal__last-page__body__table-container__column__cells-container__cell"
+                          >
+                            {row.price.toLocaleString()} تومان
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="online-prescription-modal-container__online-prescription-modal__last-page__body__table-container__column">
+                      <div className="online-prescription-modal-container__online-prescription-modal__last-page__body__table-container__column__header">
+                        تعداد
+                        <img src="/icons/medical-price 1.svg" alt="icon" />
+                      </div>
+
+                      <div className="online-prescription-modal-container__online-prescription-modal__last-page__body__table-container__column__cells-container">
+                        {tableRows.map((row, i) => (
+                          <div
+                            key={`amount-${i}`}
+                            className="online-prescription-modal-container__online-prescription-modal__last-page__body__table-container__column__cells-container__cell"
+                          >
+                            {row.amount} عدد
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="online-prescription-modal-container__online-prescription-modal__last-page__body__table-container__column">
+                      <div className="online-prescription-modal-container__online-prescription-modal__last-page__body__table-container__column__header">
+                        روش مصرف
+                        <img src="/icons/dosage 1.svg" alt="icon" />
+                      </div>
+
+                      <div className="online-prescription-modal-container__online-prescription-modal__last-page__body__table-container__column__cells-container">
+                        {tableRows.map((row, i) => (
+                          <div
+                            key={`use-${i}`}
+                            className="online-prescription-modal-container__online-prescription-modal__last-page__body__table-container__column__cells-container__cell"
+                          >
+                            {row.use}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="online-prescription-modal-container__online-prescription-modal__last-page__body__price-details">
+                  <div className="online-prescription-modal-container__online-prescription-modal__last-page__body__price-details__price-sum">
+                    <p className="online-prescription-modal-container__online-prescription-modal__last-page__body__price-details__price-sum__price">
+                      {totalPrice.toLocaleString()} تومان
+                    </p>
+                    <p className="online-prescription-modal-container__online-prescription-modal__last-page__body__price-details__price-sum__title">
+                      :قیمت کل نسخه
+                    </p>
+                    <img src="/icons/receipt-text.svg" alt="receipt-text" />
+                  </div>
+
+                  <div className="online-prescription-modal-container__online-prescription-modal__last-page__body__price-details__price-sum">
+                    <p className="online-prescription-modal-container__online-prescription-modal__last-page__body__price-details__price-sum__price">
+                      {insuranceDiscount.toLocaleString()} تومان
+                    </p>
+                    <p className="online-prescription-modal-container__online-prescription-modal__last-page__body__price-details__price-sum__title">
+                      :هزینه کسر بیمه
+                    </p>
+                    <img
+                      src="/icons/receipt-discount.svg"
+                      alt="receipt-discount"
+                    />
+                  </div>
+
+                  <div className="online-prescription-modal-container__online-prescription-modal__last-page__body__price-details__price-sum">
+                    <p className="online-prescription-modal-container__online-prescription-modal__last-page__body__price-details__price-sum__price">
+                      {shippingCost.toLocaleString()} تومان
+                    </p>
+                    <p className="online-prescription-modal-container__online-prescription-modal__last-page__body__price-details__price-sum__title">
+                      :هزینه ارسال
+                    </p>
+                    <img src="/icons/truck-fast.svg" alt="truck-fast" />
+                  </div>
+                </div>
+
+                <div className="online-prescription-modal-container__online-prescription-modal__last-page__body__price-full-sum">
+                  <p className="online-prescription-modal-container__online-prescription-modal__last-page__body__price-full-sum__price">
+                    {finalPrice.toLocaleString()} تومان
+                  </p>
+                  <p className="online-prescription-modal-container__online-prescription-modal__last-page__body__price-full-sum__title">
+                    :قیمت نهایی نسخه
+                  </p>
+                  <img
+                    src="/icons/receipt-text-blue.svg"
+                    alt="receipt-text-blue"
+                  />
+                </div>
+
+                <div className="online-prescription-modal-container__online-prescription-modal__last-page__body__description-container">
+                  <p className="online-prescription-modal-container__online-prescription-modal__last-page__body__description-container__title">
+                    توضیحات
+                  </p>
+                  <input
+                    type="text"
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
+                  />
+                </div>
+              </div>
+
+              <div className="button-container">
+                <Button onClick={() => setCurrentStepIndex(1)}>
+                  پرداخت و ثبت نهایی
+                </Button>
+              </div>
+            </div>
           )}
         </div>
       </Modal>
