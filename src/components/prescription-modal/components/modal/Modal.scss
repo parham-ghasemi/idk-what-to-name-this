@@ -1,0 +1,49 @@
+@use "../../../../styles/variables.scss" as *;
+@use "../../../../styles/mixin.scss" as *;
+
+.modal {
+  @include center-x;
+  @include center-y;
+
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+
+  &__backdrop {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+
+  &__content {
+    position: relative;
+    background-color: $white;
+    border-radius: 16px;
+    padding: 24px;
+    z-index: 1;
+    box-shadow: $shadow;
+    max-width: 750px;
+    width: 90%;
+  }
+
+  &__close {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    border: none;
+    cursor: pointer;
+    height: fit-content;
+
+    img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &__body {
+    width: 100%;
+    color: $text;
+    @include col;
+    align-items:end;
+  }
+}
