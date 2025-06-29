@@ -161,10 +161,11 @@ const OnlinePrescriptionModal = ({ isOpen, onClose }) => {
                       {step.title}
                     </div>
                   </div>
-                  <div className="online-prescription-modal-container__online-prescription-modal__steps__item__sep" />
                 </div>
               );
             })}
+
+            <div className="online-prescription-modal-container__online-prescription-modal__steps__item__sep" />
           </div>
 
           {currentStepIndex === 0 && (
