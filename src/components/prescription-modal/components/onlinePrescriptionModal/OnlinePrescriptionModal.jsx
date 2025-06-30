@@ -3,7 +3,7 @@ import { Modal } from "../modal/Modal";
 import "./OnlinePrescriptionModal.scss";
 import { insuranceOptions } from "../../PrescriptionModalData";
 import Button from "../button/Button";
-import { Handler } from "leaflet";
+import PrescriptionTable from "../../../prescriptionTable/PrescriptionTable";
 
 const steps = [
   {
@@ -64,9 +64,9 @@ const OnlinePrescriptionModal = ({ isOpen, onClose }) => {
   const [description, setDescription] = useState("");
 
   const [foundPharmacy, setFoundPharmacy] = useState(true);
-  const [foundFullPrescription, setFoundFullPrescription] = useState(false);
-  const [onAvailablePharmacy, setOnAvailablePharmacy] = useState(false);
+  const [foundFullPrescription, setFoundFullPrescription] = useState(true);
 
+  const [onAvailablePharmacy, setOnAvailablePharmacy] = useState(false);
   const [selectedDrugs, setSelectedDrugs] = useState({});
 
   const [chosenPharmacy, setChosenPharmacy] = useState(" داروخانه شماره یک");
@@ -474,78 +474,9 @@ const OnlinePrescriptionModal = ({ isOpen, onClose }) => {
                     <img src="/icons/check-box 1.svg" alt="check-box" />
                   </span>
                 </p>
+
                 <div className="online-prescription-modal-container__online-prescription-modal__last-page__body__table-container">
-                  <div className="online-prescription-modal-container__online-prescription-modal__last-page__body__table-container__columns-layout">
-                    <div className="online-prescription-modal-container__online-prescription-modal__last-page__body__table-container__column">
-                      <div className="online-prescription-modal-container__online-prescription-modal__last-page__body__table-container__column__header">
-                        نام دارو
-                        <img src="/icons/medicine 1.svg" alt="icon" />
-                      </div>
-                      <div className="online-prescription-modal-container__online-prescription-modal__last-page__body__table-container__column__cells-container">
-                        {tableRows.map((row, i) => (
-                          <div
-                            key={`name-${i}`}
-                            className="online-prescription-modal-container__online-prescription-modal__last-page__body__table-container__column__cells-container__cell"
-                          >
-                            {row.name}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className="online-prescription-modal-container__online-prescription-modal__last-page__body__table-container__column">
-                      <div className="online-prescription-modal-container__online-prescription-modal__last-page__body__table-container__column__header">
-                        قیمت
-                        <img src="/icons/medicines-time 1.svg" alt="icon" />
-                      </div>
-                      <div className="online-prescription-modal-container__online-prescription-modal__last-page__body__table-container__column__cells-container">
-                        {tableRows.map((row, i) => (
-                          <div
-                            key={`price-${i}`}
-                            className="online-prescription-modal-container__online-prescription-modal__last-page__body__table-container__column__cells-container__cell"
-                          >
-                            {row.price.toLocaleString()} تومان
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className="online-prescription-modal-container__online-prescription-modal__last-page__body__table-container__column">
-                      <div className="online-prescription-modal-container__online-prescription-modal__last-page__body__table-container__column__header">
-                        تعداد
-                        <img src="/icons/medical-price 1.svg" alt="icon" />
-                      </div>
-
-                      <div className="online-prescription-modal-container__online-prescription-modal__last-page__body__table-container__column__cells-container">
-                        {tableRows.map((row, i) => (
-                          <div
-                            key={`amount-${i}`}
-                            className="online-prescription-modal-container__online-prescription-modal__last-page__body__table-container__column__cells-container__cell"
-                          >
-                            {row.amount} عدد
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className="online-prescription-modal-container__online-prescription-modal__last-page__body__table-container__column">
-                      <div className="online-prescription-modal-container__online-prescription-modal__last-page__body__table-container__column__header">
-                        روش مصرف
-                        <img src="/icons/dosage 1.svg" alt="icon" />
-                      </div>
-
-                      <div className="online-prescription-modal-container__online-prescription-modal__last-page__body__table-container__column__cells-container">
-                        {tableRows.map((row, i) => (
-                          <div
-                            key={`use-${i}`}
-                            className="online-prescription-modal-container__online-prescription-modal__last-page__body__table-container__column__cells-container__cell"
-                          >
-                            {row.use}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
+                  <PrescriptionTable rows={tableRows} />
                 </div>
 
                 <div className="online-prescription-modal-container__online-prescription-modal__last-page__body__price-details">

@@ -7,13 +7,17 @@
   @include flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 
   &__button {
     background-color: #2c7bf3;
+    position: absolute;
     height: fit-content;
+    padding: 10px 15px;
     border-radius: 8px;
-    color: white;
-    padding: 16px 56px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 
   &__pres-type-modal {

@@ -1,0 +1,42 @@
+@use "../../styles/variables.scss" as *;
+@use "../../styles/mixin.scss" as *;
+
+.prescription-table {
+  &__columns-layout {
+    display: flex;
+    gap: 2px;
+  }
+
+  &__column {
+    background: #fff;
+    border-radius: 4px;
+    overflow: hidden;
+
+    &__header {
+      background: #72a7f7;
+      color: #fff;
+      font-weight: bold;
+      font-size: 14px;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 8px;
+      margin-bottom: 2px;
+    }
+
+    &__cells-container {
+      border: 1px solid #bed6fb;
+
+      &__cell {
+        padding: 10px;
+        font-size: 14px;
+        text-align: right;
+
+        &:not(:last-child) {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+}

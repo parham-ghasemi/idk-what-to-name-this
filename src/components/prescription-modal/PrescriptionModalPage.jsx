@@ -1,5 +1,6 @@
+import ImagePrescriptionModal from "./components/imagePrescriptionModal/ImagePrescriptionModal";
 import { Modal } from "./components/modal/Modal";
-import OnlinePrescriptionModal from "./components/onlinePrescriptionModal.jsx/OnlinePrescriptionModal";
+import OnlinePrescriptionModal from "./components/onlinePrescriptionModal/OnlinePrescriptionModal";
 import "./PrescriptionModalPage.scss";
 import { useState } from "react";
 
@@ -26,12 +27,12 @@ const PrescriptionModalPage = () => {
             انتخاب نوع نسخه
           </p>
           <div className="prescription-modal-page__pres-type-modal__body">
-            <div className="prescription-modal-page__pres-type-modal__body__item">
+            <div
+              className="prescription-modal-page__pres-type-modal__body__item"
+              onClick={() => handlePrescriptionType("image")}
+            >
               <img src="/icons/prescription (1) 1.svg" alt="" />
-              <p
-                className="prescription-modal-page__pres-type-modal__body__item__text"
-                onClick={() => handlePrescriptionType("image")}
-              >
+              <p className="prescription-modal-page__pres-type-modal__body__item__text">
                 نسخه تصویری
               </p>
             </div>
@@ -51,11 +52,10 @@ const PrescriptionModalPage = () => {
         isOpen={prescriptionType === "online"}
         onClose={() => setPrescriptionType(null)}
       />
-      {prescriptionType === "image" ? (
-        <div>image</div>
-      ) : (
-        <div>sth went wrong</div>
-      )}
+      <ImagePrescriptionModal
+        isOpen={prescriptionType === "image"}
+        onClose={() => setPrescriptionType(null)}
+      />
     </div>
   );
 };
