@@ -1,0 +1,50 @@
+@use "../../styles/variables.scss" as *;
+@use "../../styles/mixin.scss" as *;
+
+.insurance-swiper-container {
+  width: 1200px;
+  height: 131px;
+  background-color: #2c7bf3f2;
+  border-radius: 16px;
+  @include flex;
+  flex-direction: row-reverse;
+  gap: 25px;
+
+  &__title {
+    height: 100%;
+    position: relative;
+    @include flex;
+    justify-content: center;
+    align-items: start;
+    width: 191px;
+    p {
+      font-weight: 700;
+      font-size: 20px;
+      color: #FFFFFF;
+      text-align: center;
+      width: 108px;
+      align-self: center;
+    }
+    img {
+      margin-right: 13px;
+      margin-top: 16px;
+    }
+  }
+
+  &__swiper {
+    width: 100%;
+    height: 100%;
+    @include flex;
+    // background-color: aqua;
+
+    &__item {
+      background-color: #fff;
+      padding: 10px;
+      height: 92px;
+      width: 92px;
+      border-radius: 10px;
+      @include flex;
+      justify-content: center;
+    }
+  }
+}
