@@ -59,3 +59,33 @@ export const ImageTestTableRows = [
     use: "هر 8 ساعت",
   },
 ];
+
+
+export const availablePharmacies = [
+  {
+    name: "داروخانه شماره یک",
+    unAvailableDrugs: ["آموکسی سیلین 250"],
+    availableDrugs: [
+      { name: "استامینوفن 500", price: 5000, amount: 30, use: "هر 8 ساعت" },
+      {
+        name: "قطره چشمی اشک مصنوعی سینا",
+        price: 5000,
+        amount: 30,
+        use: "هر 8 ساعت",
+      },
+    ],
+  },
+  {
+    name: "داروخانه شماره دو",
+    unAvailableDrugs: ["آموکسی سیلین 250"],
+    availableDrugs: [
+      { name: "استامینوفن 500", price: 5000, amount: 30, use: "هر 8 ساعت" },
+      {
+        name: "قطره چشمی اشک مصنوعی سینا",
+        price: 5000,
+        amount: 30,
+        use: "هر 8 ساعت",
+      },
+    ],
+  },
+];
