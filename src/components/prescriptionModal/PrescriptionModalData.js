@@ -48,3 +48,14 @@ export const imageSteps = [
     title: "تایید و پرداخت",
   },
 ];
+
+export const ImageTestTableRows = [
+  { name: "استامینوفن 500", price: 50000, amount: 30, use: "هر 8 ساعت" },
+  { name: "آموکسی‌سیلین 250", price: 50000, amount: 30, use: "هر 8 ساعت" },
+  {
+    name: "قطره چشمی اشک مصنوعی سینا",
+    price: 50000,
+    amount: 30,
+    use: "هر 8 ساعت",
+  },
+];

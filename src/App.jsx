@@ -12,9 +12,9 @@ function App() {
   return (
     <div className="font-fa">
       {/* <DoctorsPage /> */}
-      {/* <PrescriptionModalPage /> */}
+      <PrescriptionModalPage />
       {/* <InsuranceSwiper /> */}
-      <MedicalCenterProfile />
+      {/* <MedicalCenterProfile /> */}
     </div>
   );
 }
