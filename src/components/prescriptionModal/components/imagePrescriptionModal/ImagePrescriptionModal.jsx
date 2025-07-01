@@ -45,7 +45,7 @@ const ImagePrescriptionModal = ({ isOpen, onClose }) => {
 
           {currentStepIndex === 2 && (
             <StepSubmit
-              tableRows={tableRows}
+              tableRows={ImageTestTableRows}
               totalPrice={totalPrice}
               insuranceDiscount={insuranceDiscount}
               shippingCost={shippingCost}

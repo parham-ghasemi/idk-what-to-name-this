@@ -23,35 +23,41 @@ const StepSubmit = ({
 
         <div className="image-prescription-modal-container__submit__body__price-details">
           <div className="image-prescription-modal-container__submit__body__price-details__price-sum">
-            <p className="__price">{totalPrice.toLocaleString()} تومان</p>
-            <p className="__title">:قیمت کل نسخه</p>
+            <p className="image-prescription-modal-container__submit__body__price-details__price-sum__price">{totalPrice.toLocaleString()} تومان</p>
+            <p className="image-prescription-modal-container__submit__body__price-details__price-sum__title">:قیمت کل نسخه</p>
             <img src="/icons/receipt-text.svg" alt="receipt-text" />
           </div>
 
           <div className="image-prescription-modal-container__submit__body__price-details__price-sum">
-            <p className="__price">
+            <p className="image-prescription-modal-container__submit__body__price-details__price-sum__price">
               {insuranceDiscount.toLocaleString()} تومان
             </p>
-            <p className="__title">:هزینه کسر بیمه</p>
+            <p className="image-prescription-modal-container__submit__body__price-details__price-sum__title">:هزینه کسر بیمه</p>
             <img src="/icons/receipt-discount.svg" alt="receipt-discount" />
           </div>
 
           <div className="image-prescription-modal-container__submit__body__price-details__price-sum">
-            <p className="__price">{shippingCost.toLocaleString()} تومان</p>
-            <p className="__title">:هزینه ارسال</p>
+            <p className="image-prescription-modal-container__submit__body__price-details__price-sum__price">{shippingCost.toLocaleString()} تومان</p>
+            <p className="image-prescription-modal-container__submit__body__price-details__price-sum__title">:هزینه ارسال</p>
             <img src="/icons/truck-fast.svg" alt="truck-fast" />
           </div>
         </div>
 
         <div className="image-prescription-modal-container__submit__body__price-full-sum">
-          <p className="__price">{finalPrice.toLocaleString()} تومان</p>
-          <p className="__title">:قیمت نهایی نسخه</p>
+          <p className="image-prescription-modal-container__submit__body__price-full-sum__price">
+            {finalPrice.toLocaleString()} تومان
+          </p>
+          <p className="image-prescription-modal-container__submit__body__price-full-sum__title">
+            :قیمت نهایی نسخه
+          </p>
           <img src="/icons/receipt-text-blue.svg" alt="receipt-text-blue" />
         </div>
       </div>
 
       <div className="image-prescription-modal-container__submit__body__description-container">
-        <p className="__title">توضیحات</p>
+        <p className="image-prescription-modal-container__submit__body__description-container__title">
+          توضیحات
+        </p>
         <input
           type="text"
           value={description}
