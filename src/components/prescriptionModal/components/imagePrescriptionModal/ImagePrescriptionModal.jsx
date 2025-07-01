@@ -4,6 +4,8 @@ import { useState } from "react";
 import { useRef } from "react";
 import Button from "../button/Button";
 import PrescriptionTable from "../../../prescriptionTable/PrescriptionTable";
+import ModalSteps from "../modalSteps/ModalSteps";
+import { imageSteps } from "../../PrescriptionModalData";
 
 const tableRows = [
   {
@@ -26,29 +28,9 @@ const tableRows = [
   },
 ];
 
-const steps = [
-  {
-    deActiveIcon: "",
-    activeIcon: "/icons/medical-prescription (1) 1 (active).svg",
-    currentIcon: "/icons/prescription (1) 1-smal.svg",
-    title: " اطلاعات نسخه",
-  },
-  {
-    deActiveIcon: "/icons/task-square(deactive).svg",
-    activeIcon: "/icons/task-square(active).svg",
-    currentIcon: "/icons/task-square(current).svg",
-    title: "بررسی نسخه",
-  },
-  {
-    deActiveIcon: "/icons/wallet-check(deactive).svg",
-    activeIcon: "/icons/medical-prescription (1) 1 (active).svg",
-    currentIcon: "/icons/wallet-check(current).svg",
-    title: "تایید و پرداخت",
-  },
-];
 const ImagePrescriptionModal = ({ isOpen, onClose }) => {
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
-  const [description, setDescription] = useState('');
+  const [description, setDescription] = useState("");
 
   const fileInputRef = useRef(null);
 
@@ -86,45 +68,7 @@ const ImagePrescriptionModal = ({ isOpen, onClose }) => {
             نسخه تصویری
           </p>
 
-          <div className="image-prescription-modal-container__steps">
-            {steps.map((step, index) => {
-              const isCurrent = index === currentStepIndex;
-              const isDeactive = index > currentStepIndex;
-              const imageClass = isCurrent
-                ? "current"
-                : isDeactive
-                ? "deactive"
-                : "active";
-
-              const icon = isCurrent
-                ? step.currentIcon
-                : isDeactive
-                ? step.deActiveIcon
-                : step.activeIcon;
-
-              return (
-                <div
-                  key={`step-${index}`}
-                  className="image-prescription-modal-container__steps__item-wrapper"
-                >
-                  <div className="image-prescription-modal-container__steps__item">
-                    <div
-                      className={`image-prescription-modal-container__steps__item__image-${imageClass}`}
-                    >
-                      <img src={icon} alt="icon" />
-                    </div>
-                    <div
-                      className={`image-prescription-modal-container__steps__item__text-${imageClass}`}
-                    >
-                      {step.title}
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-
-            {/* <div className="image-prescription-modal-container__info__steps__item__sep" /> */}
-          </div>
+          <ModalSteps steps={imageSteps} currentStepIndex={currentStepIndex} />
 
           {currentStepIndex === 0 && (
             <>
@@ -167,7 +111,11 @@ const ImagePrescriptionModal = ({ isOpen, onClose }) => {
                 </div>
                 <div className="image-prescription-modal-container__info__body__desc">
                   <p>توضیحات</p>
-                  <input type="text" value={description} onChange={val=>setDescription(val.target.value)}/>
+                  <input
+                    type="text"
+                    value={description}
+                    onChange={(val) => setDescription(val.target.value)}
+                  />
                 </div>
               </div>
 
@@ -270,9 +218,7 @@ const ImagePrescriptionModal = ({ isOpen, onClose }) => {
               </div>
 
               <div className="button-container">
-                <Button onClick={onClose}>
-                  پرداخت و ثبت نهایی
-                </Button>
+                <Button onClick={onClose}>پرداخت و ثبت نهایی</Button>
               </div>
             </>
           )}

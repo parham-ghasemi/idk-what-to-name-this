@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import "./styles/index.scss";
 import DoctorsPage from "./components/DoctorsPage/DoctorsPage";
-import PrescriptionModalPage from "./components/prescription-modal/PrescriptionModalPage";
+import PrescriptionModalPage from "./components/prescriptionModal/PrescriptionModalPage";
 
 function App() {
   const [count, setCount] = useState(0);

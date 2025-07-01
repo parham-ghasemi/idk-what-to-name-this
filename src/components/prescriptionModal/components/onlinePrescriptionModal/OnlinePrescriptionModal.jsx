@@ -1,30 +1,10 @@
 import { useState } from "react";
 import { Modal } from "../modal/Modal";
 import "./OnlinePrescriptionModal.scss";
-import { insuranceOptions } from "../../PrescriptionModalData";
+import { insuranceOptions, onlineSteps } from "../../PrescriptionModalData";
 import Button from "../button/Button";
 import PrescriptionTable from "../../../prescriptionTable/PrescriptionTable";
-
-const steps = [
-  {
-    deActiveIcon: "",
-    activeIcon: "/icons/medical-prescription (1) 1 (active).svg",
-    currentIcon: "/icons/medical-prescription 1(current).svg",
-    title: " اطلاعات نسخه",
-  },
-  {
-    deActiveIcon: "/icons/task-square(deactive).svg",
-    activeIcon: "/icons/task-square(active).svg",
-    currentIcon: "/icons/task-square(current).svg",
-    title: "بررسی نسخه",
-  },
-  {
-    deActiveIcon: "/icons/wallet-check(deactive).svg",
-    activeIcon: "/icons/medical-prescription (1) 1 (active).svg",
-    currentIcon: "/icons/wallet-check(current).svg",
-    title: "تایید و پرداخت",
-  },
-];
+import ModalSteps from "../modalSteps/ModalSteps";
 
 const availablePharmacies = [
   {
@@ -64,7 +44,7 @@ const OnlinePrescriptionModal = ({ isOpen, onClose }) => {
   const [description, setDescription] = useState("");
 
   const [foundPharmacy, setFoundPharmacy] = useState(true);
-  const [foundFullPrescription, setFoundFullPrescription] = useState(true);
+  const [foundFullPrescription, setFoundFullPrescription] = useState(false);
 
   const [onAvailablePharmacy, setOnAvailablePharmacy] = useState(false);
   const [selectedDrugs, setSelectedDrugs] = useState({});
@@ -102,7 +82,6 @@ const OnlinePrescriptionModal = ({ isOpen, onClose }) => {
   // Fixed shipping cost
   const shippingCost = 45000;
 
-  // Final price
   const finalPrice = totalPrice - insuranceDiscount + shippingCost;
 
   const handleCancel = () => {
@@ -128,45 +107,7 @@ const OnlinePrescriptionModal = ({ isOpen, onClose }) => {
             نسخه آنلاین
           </p>
 
-          <div className="online-prescription-modal-container__online-prescription-modal__steps">
-            {steps.map((step, index) => {
-              const isCurrent = index === currentStepIndex;
-              const isDeactive = index > currentStepIndex;
-              const imageClass = isCurrent
-                ? "current"
-                : isDeactive
-                ? "deactive"
-                : "active";
-
-              const icon = isCurrent
-                ? step.currentIcon
-                : isDeactive
-                ? step.deActiveIcon
-                : step.activeIcon;
-
-              return (
-                <div
-                  key={`step-${index}`}
-                  className="online-prescription-modal-container__online-prescription-modal__steps__item-wrapper"
-                >
-                  <div className="online-prescription-modal-container__online-prescription-modal__steps__item">
-                    <div
-                      className={`online-prescription-modal-container__online-prescription-modal__steps__item__image-${imageClass}`}
-                    >
-                      <img src={icon} alt="icon" />
-                    </div>
-                    <div
-                      className={`online-prescription-modal-container__online-prescription-modal__steps__item__text-${imageClass}`}
-                    >
-                      {step.title}
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-
-            <div className="online-prescription-modal-container__online-prescription-modal__steps__item__sep" />
-          </div>
+          <ModalSteps steps={onlineSteps} currentStepIndex={currentStepIndex} />
 
           {currentStepIndex === 0 && (
             <>
@@ -468,7 +409,6 @@ const OnlinePrescriptionModal = ({ isOpen, onClose }) => {
               </p>
               <div className="online-prescription-modal-container__online-prescription-modal__last-page__body">
                 <p className="online-prescription-modal-container__online-prescription-modal__last-page__body__title">
-                  تایید شده توسط{}
                   {`تایید شده توسط${chosenPharmacy}`}
                   <span>
                     <img src="/icons/check-box 1.svg" alt="check-box" />
