@@ -3,7 +3,7 @@ import { Modal } from "../modal/Modal";
 import "./OnlinePrescriptionModal.scss";
 import { insuranceOptions, onlineSteps } from "../../PrescriptionModalData";
 import Button from "../button/Button";
-import PrescriptionTable from "../../../prescriptionTable/PrescriptionTable";
+import PrescriptionTable from "../prescriptionTable/PrescriptionTable";
 import ModalSteps from "../modalSteps/ModalSteps";
 
 const availablePharmacies = [

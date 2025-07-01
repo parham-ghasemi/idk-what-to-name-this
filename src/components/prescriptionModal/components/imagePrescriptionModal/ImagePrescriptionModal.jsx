@@ -3,7 +3,7 @@ import { Modal } from "../modal/Modal";
 import { useState } from "react";
 import { useRef } from "react";
 import Button from "../button/Button";
-import PrescriptionTable from "../../../prescriptionTable/PrescriptionTable";
+import PrescriptionTable from "../prescriptionTable/PrescriptionTable";
 import ModalSteps from "../modalSteps/ModalSteps";
 import { imageSteps } from "../../PrescriptionModalData";
 
