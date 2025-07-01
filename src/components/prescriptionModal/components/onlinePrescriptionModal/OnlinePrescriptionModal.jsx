@@ -480,7 +480,7 @@ const OnlinePrescriptionModal = ({ isOpen, onClose }) => {
               </div>
 
               <div className="button-container">
-                <Button onClick={() => setCurrentStepIndex(1)}>
+                <Button onClick={onClose}>
                   پرداخت و ثبت نهایی
                 </Button>
               </div>
