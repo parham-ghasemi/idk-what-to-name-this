@@ -1,0 +1,8 @@
+@use "../../styles/variables.scss" as *;
+@use "../../styles/mixin.scss" as *;
+
+.medical-center-profile-container {
+  width: 100vw;
+  min-height: 100vh;
+  padding: 56px 120px;
+}

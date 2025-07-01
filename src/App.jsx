@@ -4,6 +4,7 @@ import "./styles/index.scss";
 import DoctorsPage from "./components/DoctorsPage/DoctorsPage";
 import PrescriptionModalPage from "./components/prescriptionModal/PrescriptionModalPage";
 import InsuranceSwiper from "./components/swiper/InsuranceSwiper";
+import MedicalCenterProfile from "./components/medicalCenterProfile/MedicalCenterProfile";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -12,7 +13,8 @@ function App() {
     <div className="font-fa">
       {/* <DoctorsPage /> */}
       {/* <PrescriptionModalPage /> */}
-      <InsuranceSwiper />
+      {/* <InsuranceSwiper /> */}
+      <MedicalCenterProfile />
     </div>
   );
 }

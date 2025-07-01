@@ -1,0 +1,70 @@
+@use "../../../../styles/variables.scss" as *;
+@use "../../../../styles/mixin.scss" as *;
+
+.medical-center-top-card {
+  width: 1200px;
+  height: 230px;
+  box-shadow: $card-shadow;
+  padding: 16px;
+  border-radius: 16px;
+  @include flex;
+  justify-content: space-between;
+  align-items: start;
+
+  &__left {
+    min-width: 798px;
+    min-height: 199px;
+    @include flex;
+    justify-content: space-between;
+
+    &__gallery-container {
+      width: 392px;
+      min-height: 199px;
+    }
+    &__appointment-container {
+      width: 305px;
+      min-height: 199px;
+    }
+  }
+
+  &__right {
+    min-width: 304px;
+    min-height: 167px;
+    @include col;
+    gap: 16px;
+    align-items: end;
+
+    &__top {
+      @include flex;
+      gap: 12px;
+      text-align: end;
+      justify-content: end;
+
+      &__title-container {
+        @include col;
+        gap: 8px;
+
+        &__title {
+          font-size: 14px;
+          font-weight: 600;
+        }
+        &__subtitle {
+          font-size: 14px;
+          font-weight: 400;
+          color: #424344;
+        }
+      }
+    }
+
+    &__appointment-kind {
+      width: fit-content;
+      padding: 5px 8px;
+      background-color: #EF5DA8;
+      border-radius: 16px;
+    }
+  }
+
+  * {
+    border: 1px solid red;
+  }
+}
