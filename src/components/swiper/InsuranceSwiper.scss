@@ -8,7 +8,6 @@
   border-radius: 16px;
   @include flex;
   flex-direction: row-reverse;
-  gap: 25px;
 
   &__title {
     height: 100%;
@@ -16,7 +15,7 @@
     @include flex;
     justify-content: center;
     align-items: start;
-    width: 191px;
+    min-width: 191px;
     p {
       font-weight: 700;
       font-size: 20px;
