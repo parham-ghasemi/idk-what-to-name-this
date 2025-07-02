@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { availablePharmacies } from "../../../PrescriptionModalData";
-import PrescriptionTable from "../../prescriptionTable/PrescriptionTable";
-import Button from "../../button/Button";
+import { availablePharmacies } from "../../../../PrescriptionModalData";
+import PrescriptionTable from "../../../prescriptionTable/PrescriptionTable";
+import Button from "../../../button/Button";
+import './StepLast.scss';
 
 const StepLast = ({ selectedDrugs, onClose }) => {
   const [chosenPharmacy, setChosenPharmacy] = useState(" داروخانه شماره یک");
@@ -38,69 +39,69 @@ const StepLast = ({ selectedDrugs, onClose }) => {
 
   const finalPrice = totalPrice - insuranceDiscount + shippingCost;
   return (
-    <div className="online-prescription-modal-container__online-prescription-modal__last-page">
-      <p className="online-prescription-modal-container__online-prescription-modal__last-page__title">
+    <div className="last-page">
+      <p className="last-page__title">
         تایید و پرداخت
         <span>
           <img src="/icons/wallet-check.svg" alt="" />
         </span>
       </p>
-      <div className="online-prescription-modal-container__online-prescription-modal__last-page__body">
-        <p className="online-prescription-modal-container__online-prescription-modal__last-page__body__title">
+      <div className="last-page__body">
+        <p className="last-page__body__title">
           {`تایید شده توسط${chosenPharmacy}`}
           <span>
             <img src="/icons/check-box 1.svg" alt="check-box" />
           </span>
         </p>
 
-        <div className="online-prescription-modal-container__online-prescription-modal__last-page__body__table-container">
+        <div className="last-page__body__table-container">
           <PrescriptionTable rows={tableRows} />
         </div>
 
-        <div className="online-prescription-modal-container__online-prescription-modal__last-page__body__price-details">
-          <div className="online-prescription-modal-container__online-prescription-modal__last-page__body__price-details__price-sum">
-            <p className="online-prescription-modal-container__online-prescription-modal__last-page__body__price-details__price-sum__price">
+        <div className="last-page__body__price-details">
+          <div className="last-page__body__price-details__price-sum">
+            <p className="last-page__body__price-details__price-sum__price">
               {totalPrice.toLocaleString()} تومان
             </p>
-            <p className="online-prescription-modal-container__online-prescription-modal__last-page__body__price-details__price-sum__title">
+            <p className="last-page__body__price-details__price-sum__title">
               :قیمت کل نسخه
             </p>
             <img src="/icons/receipt-text.svg" alt="receipt-text" />
           </div>
 
-          <div className="online-prescription-modal-container__online-prescription-modal__last-page__body__price-details__price-sum">
-            <p className="online-prescription-modal-container__online-prescription-modal__last-page__body__price-details__price-sum__price">
+          <div className="last-page__body__price-details__price-sum">
+            <p className="last-page__body__price-details__price-sum__price">
               {insuranceDiscount.toLocaleString()} تومان
             </p>
-            <p className="online-prescription-modal-container__online-prescription-modal__last-page__body__price-details__price-sum__title">
+            <p className="last-page__body__price-details__price-sum__title">
               :هزینه کسر بیمه
             </p>
             <img src="/icons/receipt-discount.svg" alt="receipt-discount" />
           </div>
 
-          <div className="online-prescription-modal-container__online-prescription-modal__last-page__body__price-details__price-sum">
-            <p className="online-prescription-modal-container__online-prescription-modal__last-page__body__price-details__price-sum__price">
+          <div className="last-page__body__price-details__price-sum">
+            <p className="last-page__body__price-details__price-sum__price">
               {shippingCost.toLocaleString()} تومان
             </p>
-            <p className="online-prescription-modal-container__online-prescription-modal__last-page__body__price-details__price-sum__title">
+            <p className="last-page__body__price-details__price-sum__title">
               :هزینه ارسال
             </p>
             <img src="/icons/truck-fast.svg" alt="truck-fast" />
           </div>
         </div>
 
-        <div className="online-prescription-modal-container__online-prescription-modal__last-page__body__price-full-sum">
-          <p className="online-prescription-modal-container__online-prescription-modal__last-page__body__price-full-sum__price">
+        <div className="last-page__body__price-full-sum">
+          <p className="last-page__body__price-full-sum__price">
             {finalPrice.toLocaleString()} تومان
           </p>
-          <p className="online-prescription-modal-container__online-prescription-modal__last-page__body__price-full-sum__title">
+          <p className="last-page__body__price-full-sum__title">
             :قیمت نهایی نسخه
           </p>
           <img src="/icons/receipt-text-blue.svg" alt="receipt-text-blue" />
         </div>
 
-        <div className="online-prescription-modal-container__online-prescription-modal__last-page__body__description-container">
-          <p className="online-prescription-modal-container__online-prescription-modal__last-page__body__description-container__title">
+        <div className="last-page__body__description-container">
+          <p className="last-page__body__description-container__title">
             توضیحات
           </p>
           <input

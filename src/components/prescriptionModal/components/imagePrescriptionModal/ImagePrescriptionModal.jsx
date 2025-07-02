@@ -3,9 +3,9 @@ import { Modal } from "../modal/Modal";
 import { useState, useRef } from "react";
 import ModalSteps from "../modalSteps/ModalSteps";
 import { imageSteps } from "../../PrescriptionModalData";
-import StepUpload from "./imagePrescriptionModalSteps/StepUpload";
-import StepReview from "./imagePrescriptionModalSteps/StepReview";
-import StepSubmit from "./imagePrescriptionModalSteps/StepSubmit";
+import StepUpload from "./imagePrescriptionModalSteps/stepUpload/StepUpload";
+import StepReview from "./imagePrescriptionModalSteps/stepReview/StepReview";
+import StepSubmit from "./imagePrescriptionModalSteps/stepSubmit/StepSubmit";
 import { ImageTestTableRows } from "../../PrescriptionModalData";
 
 const ImagePrescriptionModal = ({ isOpen, onClose }) => {

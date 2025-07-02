@@ -1,0 +1,36 @@
+@use "../../../../../../styles/variables.scss" as *;
+@use "../../../../../../styles/mixin.scss" as *;
+
+.review {
+  &__body {
+    @include col;
+    align-items: end;
+    width: 100%;
+    border: 1px solid #c0c2ca;
+    border-radius: 8px;
+    padding: 19px 16px;
+    gap: 26px;
+
+    &__title-container {
+      @include flex;
+      justify-content: end;
+      gap: 4px;
+
+      p {
+        color: #2c7bf3;
+        font-size: 14px;
+        font-weight: 500;
+      }
+    }
+
+    &__content {
+      @include flex;
+      gap: 8px;
+      justify-content: end;
+      p {
+        font-size: 16px;
+        font-weight: 500;
+      }
+    }
+  }
+}

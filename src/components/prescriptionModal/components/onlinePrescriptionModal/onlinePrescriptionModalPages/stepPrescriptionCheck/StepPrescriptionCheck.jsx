@@ -1,5 +1,6 @@
 import { useState } from "react";
-import Button from "../../button/Button";
+import Button from "../../../button/Button";
+import './StepPrescriptionCheck.scss'
 
 const StepPrescriptionCheck = ({
   onClose,
@@ -12,15 +13,15 @@ const StepPrescriptionCheck = ({
 
   return (
     <>
-      <div className="online-prescription-modal-container__online-prescription-modal__prescription-check-container">
-        <p className="online-prescription-modal-container__online-prescription-modal__prescription-check-container__title">
+      <div className="prescription-check-container">
+        <p className="prescription-check-container__title">
           بررسی نسخه
           <span>
             <img src="/icons/task-square(small).svg" alt="img" />
           </span>
         </p>
 
-        <p className="online-prescription-modal-container__online-prescription-modal__prescription-check-container__body">
+        <p className="prescription-check-container__body">
           {invalidData ? (
             <>
               نسخه‌ای با مشخصات واردشده یافت نشد. لطفاً اطلاعات را بررسی کنید

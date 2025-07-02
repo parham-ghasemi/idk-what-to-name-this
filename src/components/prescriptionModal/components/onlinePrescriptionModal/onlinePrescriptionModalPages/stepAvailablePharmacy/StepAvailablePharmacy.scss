@@ -1,0 +1,78 @@
+@use "../../../../../../styles/variables.scss" as *;
+@use "../../../../../../styles/mixin.scss" as *;
+
+.available-pharmacies-container {
+  @include col;
+  gap: 32px;
+  &__title-container {
+    display: flex;
+    justify-content: end;
+    gap: 8px;
+
+    p {
+      font-size: 16px;
+      font-weight: 500;
+      text-align: end;
+      text-wrap: wrap;
+    }
+  }
+
+  &__card-container {
+    @include col;
+    gap: 32px;
+    &__card {
+      position: relative;
+      width: 100%;
+      min-height: 140px;
+      border: 1px solid #c0c2ca;
+      border-radius: 8px;
+      padding: 26px 16px;
+
+      @include col;
+      gap: 24px;
+
+      &__card-tick {
+        position: absolute;
+        top: 26px;
+        left: 16px;
+      }
+
+      &__top {
+        @include flex;
+        justify-content: end;
+        gap: 8px;
+        &__title {
+          text-align: end;
+          font-size: 14px;
+
+          &__name {
+            color: #2c7bf3;
+            font-weight: 700;
+          }
+          &__unavailable-drugs {
+            color: #616262;
+            font-weight: 500;
+          }
+        }
+      }
+
+      &__bottom {
+        @include col;
+        align-items: end;
+        gap: 16px;
+
+        &__drug {
+          @include flex;
+          flex-direction: row-reverse;
+          gap: 8px;
+
+          p {
+            font-size: 14px;
+            font-weight: 400;
+            color: #355eb1;
+          }
+        }
+      }
+    }
+  }
+}

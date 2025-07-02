@@ -1,10 +1,16 @@
-import { availablePharmacies } from "../../../PrescriptionModalData";
-import Button from "../../button/Button";
+import { availablePharmacies } from "../../../../PrescriptionModalData";
+import Button from "../../../button/Button";
+import './StepAvailablePharmacy.scss'
 
-const StepAvailablePharmacy = ({ setSelectedDrugs, selectedDrugs, onClose, setCurrentStepIndex }) => {
+const StepAvailablePharmacy = ({
+  setSelectedDrugs,
+  selectedDrugs,
+  onClose,
+  setCurrentStepIndex,
+}) => {
   return (
-    <div className="online-prescription-modal-container__online-prescription-modal__available-pharmacies-container">
-      <div className="online-prescription-modal-container__online-prescription-modal__available-pharmacies-container__title-container">
+    <div className="available-pharmacies-container">
+      <div className="available-pharmacies-container__title-container">
         <p>
           داروخانه‌هایی که بخشی از نسخه را دارند، در لیست زیر نمایش داده
           شده‌اند، آیتم‌های مورد نظر خود را انتخاب کنید
@@ -14,7 +20,7 @@ const StepAvailablePharmacy = ({ setSelectedDrugs, selectedDrugs, onClose, setCu
         </span>
       </div>
 
-      <div className="online-prescription-modal-container__online-prescription-modal__available-pharmacies-container__card-container">
+      <div className="available-pharmacies-container__card-container">
         {availablePharmacies.map((pharmacy, pharmacyIndex) => {
           const selectedForPharmacy = selectedDrugs[pharmacyIndex] || [];
           const isPharmacySelected =
@@ -26,10 +32,10 @@ const StepAvailablePharmacy = ({ setSelectedDrugs, selectedDrugs, onClose, setCu
           return (
             <div
               key={`pharma-${pharmacyIndex}`}
-              className="online-prescription-modal-container__online-prescription-modal__available-pharmacies-container__card-container__card"
+              className="available-pharmacies-container__card-container__card"
             >
               <div
-                className="online-prescription-modal-container__online-prescription-modal__available-pharmacies-container__card-container__card__card-tick"
+                className="available-pharmacies-container__card-container__card__card-tick"
                 onClick={() => {
                   const allSelected =
                     selectedForPharmacy.length ===
@@ -52,12 +58,12 @@ const StepAvailablePharmacy = ({ setSelectedDrugs, selectedDrugs, onClose, setCu
                 />
               </div>
 
-              <div className="online-prescription-modal-container__online-prescription-modal__available-pharmacies-container__card-container__card__top">
-                <div className="online-prescription-modal-container__online-prescription-modal__available-pharmacies-container__card-container__card__top__title">
-                  <p className="online-prescription-modal-container__online-prescription-modal__available-pharmacies-container__card-container__card__top__title__name">
+              <div className="available-pharmacies-container__card-container__card__top">
+                <div className="available-pharmacies-container__card-container__card__top__title">
+                  <p className="available-pharmacies-container__card-container__card__top__title__name">
                     {pharmacy.name}
                   </p>
-                  <p className="online-prescription-modal-container__online-prescription-modal__available-pharmacies-container__card-container__card__top__title__unavailable-drugs">
+                  <p className="available-pharmacies-container__card-container__card__top__title__unavailable-drugs">
                     {`داروی ${pharmacy.unAvailableDrugs.join(
                       "، "
                     )} از نسخه شما موجود نیست. از بین داروهای موجود انتخاب کنید`}
@@ -66,7 +72,7 @@ const StepAvailablePharmacy = ({ setSelectedDrugs, selectedDrugs, onClose, setCu
                 <img src="/icons/pharmacy (1) 2.svg" alt="pharmacy" />
               </div>
 
-              <div className="online-prescription-modal-container__online-prescription-modal__available-pharmacies-container__card-container__card__bottom">
+              <div className="available-pharmacies-container__card-container__card__bottom">
                 {pharmacy.availableDrugs.map((drug, drugIndex) => {
                   const isDrugSelected =
                     selectedDrugs[pharmacyIndex]?.includes(drug.name) ?? false;
@@ -74,7 +80,7 @@ const StepAvailablePharmacy = ({ setSelectedDrugs, selectedDrugs, onClose, setCu
                   return (
                     <div
                       key={`drug-${drugIndex}`}
-                      className="online-prescription-modal-container__online-prescription-modal__available-pharmacies-container__card-container__card__bottom__drug"
+                      className="available-pharmacies-container__card-container__card__bottom__drug"
                       onClick={() => {
                         setSelectedDrugs((prev) => {
                           const prevDrugs = prev[pharmacyIndex] || [];

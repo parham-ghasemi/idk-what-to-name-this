@@ -1,4 +1,5 @@
-import Button from "../../button/Button";
+import Button from "../../../button/Button";
+import './StepUpload.scss'
 
 const StepUpload = ({
   fileInputRef,
@@ -15,8 +16,8 @@ const StepUpload = ({
 
   return (
     <>
-      <div className="image-prescription-modal-container__info__body">
-        <div className="image-prescription-modal-container__info__body__title">
+      <div className="info__body">
+        <div className="info__body__title">
           <p> اطلاعات نسخه</p>
           <img
             src="/icons/medical-prescription 1(smal).svg"
@@ -24,13 +25,13 @@ const StepUpload = ({
           />
         </div>
 
-        <div className="image-prescription-modal-container__info__body__uploader-container">
-          <p className="image-prescription-modal-container__info__body__uploader-container__title">
+        <div className="info__body__uploader-container">
+          <p className="info__body__uploader-container__title">
             آپلود تصویر نسخه
           </p>
 
           <div
-            className="image-prescription-modal-container__info__body__uploader-container__upload"
+            className="info__body__uploader-container__upload"
             onClick={handleUploadClick}
           >
             <img src="/icons/document-upload-black.svg" alt="document-upload" />
@@ -45,12 +46,12 @@ const StepUpload = ({
           />
         </div>
 
-        <div className="image-prescription-modal-container__info__body__phone-number-container">
+        <div className="info__body__phone-number-container">
           <p>شماره تماس</p>
           <input type="tel" />
         </div>
 
-        <div className="image-prescription-modal-container__info__body__desc">
+        <div className="info__body__desc">
           <p>توضیحات</p>
           <input
             type="text"

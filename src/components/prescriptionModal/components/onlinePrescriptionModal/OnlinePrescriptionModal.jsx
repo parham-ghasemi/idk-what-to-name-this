@@ -3,10 +3,10 @@ import { Modal } from "../modal/Modal";
 import "./OnlinePrescriptionModal.scss";
 import { onlineSteps } from "../../PrescriptionModalData";
 import ModalSteps from "../modalSteps/ModalSteps";
-import StepInfo from "./onlinePrescriptionModalPages/StepInfo";
-import StepPrescriptionCheck from "./onlinePrescriptionModalPages/StepPrescriptionCheck";
-import StepAvailablePharmacy from "./onlinePrescriptionModalPages/StepAvailablePharmacy";
-import StepLast from "./onlinePrescriptionModalPages/StepLast";
+import StepInfo from "./onlinePrescriptionModalPages/stepInfo/StepInfo";
+import StepPrescriptionCheck from "./onlinePrescriptionModalPages/stepPrescriptionCheck/StepPrescriptionCheck";
+import StepAvailablePharmacy from "./onlinePrescriptionModalPages/stepAvailablePharmacy/StepAvailablePharmacy";
+import StepLast from "./onlinePrescriptionModalPages/stepLast/StepLast";
 
 const OnlinePrescriptionModal = ({ isOpen, onClose }) => {
   const [currentStepIndex, setCurrentStepIndex] = useState(0);

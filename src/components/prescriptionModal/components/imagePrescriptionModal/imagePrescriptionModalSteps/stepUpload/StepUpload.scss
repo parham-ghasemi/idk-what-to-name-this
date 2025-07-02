@@ -1,0 +1,75 @@
+@use "../../../../../../styles/variables.scss" as *;
+@use "../../../../../../styles/mixin.scss" as *;
+
+.info {
+  &__body {
+    border: 1px solid #eaf2fe;
+    border-radius: 8px;
+    width: 100%;
+    min-height: 430px;
+    padding: 19px 16px;
+    @include col;
+    align-items: end;
+    gap: 24px;
+
+    &__title {
+      @include flex;
+      justify-content: end;
+      gap: 4px;
+
+      p {
+        color: #2c7bf3;
+        font-size: 14px;
+        font-weight: 500;
+      }
+    }
+
+    &__uploader-container {
+      @include col;
+      gap: 4px;
+      &__title {
+        font-size: 14px;
+        font-weight: 400;
+        color: #767a8c;
+        text-align: end;
+      }
+
+      &__upload {
+        cursor: pointer;
+        border: 1px solid #acadaf;
+        border-radius: 4px;
+        height: 200px;
+        width: 200px;
+        @include flex;
+        justify-content: center;
+      }
+    }
+
+    &__phone-number-container {
+      @include col;
+      align-items: end;
+
+      input {
+        width: 200px;
+        height: 32px;
+        border: 1px solid #acadaf;
+        border-radius: 4px;
+        cursor: text;
+      }
+    }
+    &__desc {
+      @include col;
+      align-items: end;
+      width: 100%;
+
+      input {
+        width: 100%;
+        height: 55px;
+        border: 1px solid #acadaf;
+        border-radius: 4px;
+        text-align: end;
+        cursor: text;
+      }
+    }
+  }
+}
