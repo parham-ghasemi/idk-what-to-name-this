@@ -20,45 +20,4 @@
     transform: translate(-50%, -50%);
   }
 
-  &__pres-type-modal {
-    @include col;
-    align-items: end;
-    gap: 16px;
-    width: 100%;
-
-    &__header {
-      font-size: 16px;
-      font-weight: 500;
-      color: #292929;
-    }
-
-    &__body {
-      width: 100%;
-      @include flex;
-      justify-content: center;
-      gap: 32px;
-
-      &__item {
-        height: 138px;
-        width: 150px;
-        @include col;
-        gap: 16px;
-        justify-content: center;
-        align-items: center;
-
-        &:hover {
-          border: 1px solid #BED6FB;
-          background-color: #EAF2FE;
-          cursor: pointer;
-          border-radius: 8px;
-        }
-
-        &__text {
-          color: #2c7bf3;
-          font-size: 14px;
-          font-weight: 700;
-        }
-      }
-    }
-  }
 }
