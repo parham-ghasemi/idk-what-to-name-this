@@ -59,8 +59,41 @@
     &__appointment-kind {
       width: fit-content;
       padding: 5px 8px;
-      background-color: #EF5DA8;
+      background-color: #ef5da8;
       border-radius: 16px;
+      font-weight: 400;
+      font-size: 12px;
+    }
+
+    &__rating-container {
+      @include flex;
+      gap: 6px;
+
+      &__rating {
+        color: #131415;
+        font-weight: 500;
+        font-size: 14px;
+      }
+      &__raters {
+        color: #929292;
+        font-weight: 400;
+        font-size: 14px;
+        direction: rtl;
+      }
+    }
+
+    &__tags-container {
+      @include flex;
+      gap: 4px;
+
+      &__tag {
+        background-color: #C8E6C9;
+        color: #2A602C;
+        font-weight: 400;
+        font-size: 12px;
+        padding: 5px 8px;
+        border-radius: 16px;
+      }
     }
   }
 

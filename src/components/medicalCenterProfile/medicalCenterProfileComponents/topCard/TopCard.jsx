@@ -19,10 +19,30 @@ const TopCard = ({ data }) => {
           </div>
           <img src={data.imageURL} alt="profile-pic" />
         </div>
-      <div className="medical-center-top-card__right__appointment-kind">
-        {data.appointmentKind}
-      </div>
+        <div className="medical-center-top-card__right__appointment-kind">
+          {data.appointmentKind}
+        </div>
 
+        <div className="medical-center-top-card__right__rating-container">
+          <div className="medical-center-top-card__right__rating-container__raters">
+            {`(${data.reviewsCount}نظر)`}
+          </div>
+          <div className="medical-center-top-card__right__rating-container__rating">
+            {data.rating}
+          </div>
+          <img src="/icons/star.svg" alt="star" />
+        </div>
+
+        <div className="medical-center-top-card__right__tags-container">
+          {data.tags.map((tag, index) => (
+            <div
+              className="medical-center-top-card__right__tags-container__tag"
+              key={`tag-${index}`}
+            >
+              {tag.label}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
