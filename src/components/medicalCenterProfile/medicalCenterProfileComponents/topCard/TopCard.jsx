@@ -5,7 +5,33 @@ const TopCard = ({ data }) => {
     <div className="medical-center-top-card">
       <div className="medical-center-top-card__left">
         <div className="medical-center-top-card__left__gallery-container"></div>
-        <div className="medical-center-top-card__left__appointment-container"></div>
+        <div className="medical-center-top-card__left__appointment-container">
+          <div className="medical-center-top-card__left__appointment-container__top">
+            <p className="medical-center-top-card__left__appointment-container__top__item">
+              {data.days}
+              <img src="/icons/calendar-tick-blue.svg" alt="calendar-tick" />
+            </p>
+            <p className="medical-center-top-card__left__appointment-container__top__item">
+              {data.hours}
+              <img src="/icons/clock-blue.svg" alt="calendar-tick" />
+            </p>
+          </div>
+          <div className="medical-center-top-card__left__appointment-container__bottom">
+            <p className="medical-center-top-card__left__appointment-container__bottom__item">
+              <span className="medical-center-top-card__left__appointment-container__bottom__item__text">
+                {data.address}
+              </span>
+              <img src="/icons/location.svg" alt="calendar-tick" />
+            </p>
+            <p className="medical-center-top-card__left__appointment-container__bottom__item">
+              {data.phoneNumber}
+              <img src="/icons/call-full.svg" alt="calendar-tick" />
+            </p>
+          </div>
+          <button type="button" className="medical-center-top-card__left__appointment-container__button">
+            نوبت بگیرید
+          </button>
+        </div>
       </div>
       <div className="medical-center-top-card__right">
         <div className="medical-center-top-card__right__top">

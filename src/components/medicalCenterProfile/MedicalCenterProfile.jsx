@@ -19,6 +19,7 @@ const data = {
     { label: "دولتی", type: "gov" },
     { label: "آموزشی", type: "edu" },
   ],
+  phoneNumber: '3371771914-77881578',
 };
 
 const MedicalCenterProfile = () => {
