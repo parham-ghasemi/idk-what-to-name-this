@@ -102,13 +102,7 @@ const DepartmentsSection = () => {
                     : ""
                 }`}
               >
-                <p
-                  className={`departments-section-container__content__cards__card__text__title ${
-                    index !== activeIndex
-                      ? "departments-section-container__content__cards__card__text__title--not-active"
-                      : ""
-                  }`}
-                >
+                <p className="departments-section-container__content__cards__card__text__title ">
                   {dep.title}
                 </p>
                 <div
