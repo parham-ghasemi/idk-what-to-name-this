@@ -1,13 +1,6 @@
 import ImageCarousel from "../imageCarousel/ImageCarousel";
 import "./TopCard.scss";
 
-const imgs = [
-  "./images/clinic-img.jpg",
-  "./images/clinic-img2.jpg",
-  "./images/clinic-img.jpg",
-  "./images/clinic-img2.jpg",
-];
-
 const TopCard = ({ data }) => {
   return (
     <div className="medical-center-top-card">
@@ -45,11 +38,12 @@ const TopCard = ({ data }) => {
           </button>
         </div>
         <div className="medical-center-top-card__left__carousel-container">
-          <ImageCarousel images={imgs} />
+          <ImageCarousel images={data.imageURLs} />
         </div>
       </div>
       <div className="medical-center-top-card__right">
         <div className="medical-center-top-card__right__top">
+          <img src={data.iconURL} alt="profile-pic" />
           <div className="medical-center-top-card__right__top__title-container">
             <p className="medical-center-top-card__right__top__title-container__title">
               {data.name}
@@ -58,7 +52,6 @@ const TopCard = ({ data }) => {
               {data.subtitle}
             </p>
           </div>
-          <img src={data.imageURL} alt="profile-pic" />
         </div>
         <div className="medical-center-top-card__right__appointment-kind">
           {data.appointmentKind}
