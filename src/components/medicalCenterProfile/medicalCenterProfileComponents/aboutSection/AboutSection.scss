@@ -9,7 +9,6 @@
   &__title-container {
     width: 1200px;
     @include flex;
-    margin-top: 50px;
     gap: 16px;
     &__title {
       @include flex;

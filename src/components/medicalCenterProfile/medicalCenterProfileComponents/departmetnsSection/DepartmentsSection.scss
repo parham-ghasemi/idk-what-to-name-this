@@ -1,0 +1,112 @@
+@use "../../../../styles/variables.scss" as *;
+@use "../../../../styles/mixin.scss" as *;
+
+.departments-section-container {
+  @include col;
+  gap: 11px;
+  &__title {
+    @include flex;
+    gap: 4px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #131415;
+  }
+
+  &__content {
+    width: 100%;
+    @include flex;
+    justify-content: center;
+
+    &__cards {
+      @include flex;
+      height: 298px;
+      width: 1200px;
+      border-radius: 8px;
+      overflow: hidden;
+      &__card {
+        height: 100%;
+        width: 183px;
+        transition: width ease-out 200ms;
+        position: relative;
+        user-select: none;
+        &:hover {
+          cursor: pointer;
+        }
+
+        &--active {
+          width: 285px;
+        }
+
+        &__bg {
+          height: 100%;
+          object-fit: cover;
+          filter: brightness(0.5);
+        }
+        &::after {
+          height: 100%;
+          background-color: #00279d;
+          width: 100%;
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          opacity: 0.6;
+        }
+        &__text {
+          @include col;
+          gap: 12px;
+          align-items: center;
+          z-index: 99;
+          position: absolute;
+          top: 28px;
+          left: 50%;
+          transform: translateX(-50%);
+          transition: top ease-out 200ms;
+
+          &--not-active {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+          &__title {
+            font-weight: 700;
+            font-size: 20px;
+            color: white;
+            text-align: center;
+            width: 137px;
+
+            &--not-active {
+              // position: absolute;
+              // top: 50%;
+              // left: 50%;
+              // transform: translate(-50%, -50%);
+            }
+          }
+          &__body {
+            color: #b5b5b5;
+            text-align: start;
+            font-size: 14px;
+            font-weight: 600;
+            opacity: 1;
+            display: block;
+            transition: display opacity 0.5s ease;
+            transition-behavior: allow-discrete;
+            ul {
+              @include col;
+              gap: 8px;
+
+              li {
+                list-style: disc;
+              }
+            }
+
+            &--not-active {
+              opacity: 0;
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
