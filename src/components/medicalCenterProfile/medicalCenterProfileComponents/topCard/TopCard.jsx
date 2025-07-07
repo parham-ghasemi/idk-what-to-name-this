@@ -1,36 +1,51 @@
+import ImageCarousel from "../imageCarousel/ImageCarousel";
 import "./TopCard.scss";
+
+const imgs = [
+  "./images/clinic-img.jpg",
+  "./images/clinic-img2.jpg",
+  "./images/clinic-img.jpg",
+  "./images/clinic-img2.jpg",
+];
 
 const TopCard = ({ data }) => {
   return (
     <div className="medical-center-top-card">
       <div className="medical-center-top-card__left">
-        <div className="medical-center-top-card__left__gallery-container"></div>
         <div className="medical-center-top-card__left__appointment-container">
           <div className="medical-center-top-card__left__appointment-container__top">
             <p className="medical-center-top-card__left__appointment-container__top__item">
-              {data.days}
               <img src="/icons/calendar-tick-blue.svg" alt="calendar-tick" />
+              {data.days}
             </p>
             <p className="medical-center-top-card__left__appointment-container__top__item">
-              {data.hours}
               <img src="/icons/clock-blue.svg" alt="calendar-tick" />
+              {data.hours}
             </p>
           </div>
           <div className="medical-center-top-card__left__appointment-container__bottom">
             <p className="medical-center-top-card__left__appointment-container__bottom__item">
+              <img src="/icons/location.svg" alt="calendar-tick" />
               <span className="medical-center-top-card__left__appointment-container__bottom__item__text">
                 {data.address}
               </span>
-              <img src="/icons/location.svg" alt="calendar-tick" />
             </p>
             <p className="medical-center-top-card__left__appointment-container__bottom__item">
-              {data.phoneNumber}
               <img src="/icons/call-full.svg" alt="calendar-tick" />
+              <span className="medical-center-top-card__left__appointment-container__bottom__item__text">
+                {data.phoneNumber}
+              </span>
             </p>
           </div>
-          <button type="button" className="medical-center-top-card__left__appointment-container__button">
+          <button
+            type="button"
+            className="medical-center-top-card__left__appointment-container__button"
+          >
             نوبت بگیرید
           </button>
+        </div>
+        <div className="medical-center-top-card__left__carousel-container">
+          <ImageCarousel images={imgs} />
         </div>
       </div>
       <div className="medical-center-top-card__right">
