@@ -169,8 +169,9 @@
             border-radius: 8px;
             font-weight: 500;
             font-size: 14px;
+            transition: opacity ease-in 100ms;
             &:hover {
-              background-color: lighten($color: #2C7BF3, $amount: 10);
+              opacity: 0.8;
             }
           }
         }
