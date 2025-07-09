@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { data } from "./data";
 import AboutSection from "./medicalCenterProfileComponents/aboutSection/AboutSection";
 import DepartmentsSection from "./medicalCenterProfileComponents/departmetnsSection/DepartmentsSection";
@@ -9,6 +10,9 @@ import TopCard from "./medicalCenterProfileComponents/topCard/TopCard";
 import "./MedicalProfile.scss";
 
 const MedicalCenterProfile = () => {
+  const [isFabActive, setIsFabActive] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <div className="medical-center-profile-container">
       <TopCard data={data} />
@@ -27,6 +31,27 @@ const MedicalCenterProfile = () => {
       </div>
       <div id="insurance">
         <InsuranceSection />
+      </div>
+
+      <div className="medical-center-profile-container__appointment-fab-container">
+        <div
+          onMouseDown={() => setIsFabActive((prev) => !prev)}
+          className={`medical-center-profile-container__appointment-fab-container__circle ${
+            isFabActive
+              ? "medical-center-profile-container__appointment-fab-container__circle--active"
+              : ""
+          }`}
+        >
+          <p className="medical-center-profile-container__appointment-fab-container__circle__text">
+            دریافت نوبت
+          </p>
+          <div
+            className="medical-center-profile-container__appointment-fab-container__circle__all-appointments"
+            onMouseDown={() => setIsModalOpen(true)}
+          >
+            مشاهده همه نوبت‌ها
+          </div>
+        </div>
       </div>
     </div>
   );

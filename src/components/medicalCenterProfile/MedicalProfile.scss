@@ -8,4 +8,58 @@
   @include col;
   align-items: center;
   gap: 50px;
+
+  &__appointment-fab-container {
+    position: fixed;
+    bottom: 44px;
+    right: 106px;
+    z-index: 99;
+    user-select: none;
+
+    &__circle {
+      height: 56px;
+      width: 56px;
+      background-color: #2c7cf3;
+      border-radius: 50%;
+      @include flex;
+      justify-content: center;
+      cursor: pointer;
+      position: relative;
+
+      &:hover {
+        border: 1px solid #1f57ad;
+      }
+
+      &__text {
+        text-align: center;
+        font-size: 12px;
+        font-weight: 500;
+        color: white;
+      }
+
+      &__all-appointments {
+        display: none;
+      }
+      &--active > &__all-appointments {
+        @include flex;
+        justify-content: center;
+        position: absolute;
+        height: 39px;
+        width: 124px;
+        background-color: white;
+        box-shadow: 0 6px 10px #00000033;
+        top: -42px;
+        right: 50%;
+        border-radius: 16px 16px 0 16px;
+
+        color: #131415;
+        font-size: 12px;
+        font-weight: 500;
+
+        &:hover {
+          transform: translateY(-3px);
+        }
+      }
+    }
+  }
 }
