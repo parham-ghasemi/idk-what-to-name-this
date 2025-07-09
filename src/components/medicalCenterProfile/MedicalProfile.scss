@@ -6,5 +6,6 @@
   min-height: 100vh;
   padding: 56px 120px;
   @include col;
+  align-items: center;
   gap: 50px;
 }

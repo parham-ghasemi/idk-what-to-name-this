@@ -1,48 +1,6 @@
 import "./SpecialistsResults.scss";
 
-const specialists = [
-  {
-    name: "دکتر فروغ موحدزاده",
-    image: "/images/doc.jpg",
-    specialties: ["متخصص زنان و زایمان", "فلوشیپ نازایی"],
-    raters: 145,
-    rating: 4.5,
-    tags: ["خوش برخورد", "وقت شناس"],
-    days: ["شنبه", "دوشنبه"],
-    hours: "8 تا 10",
-    successfullAppointments: 625,
-    hasAppointmentsThisWeek: false,
-    closestAppointment: "شنبه 24/3 (13:30)",
-  },
-  {
-    name: "دکتر فروغ موحدزاده",
-    image: "/images/doc.jpg",
-    specialties: ["متخصص زنان و زایمان", "فلوشیپ نازایی"],
-    raters: 145,
-    rating: 4.5,
-    tags: ["خوش برخورد", "وقت شناس"],
-    days: ["شنبه", "دوشنبه"],
-    hours: "8 تا 10",
-    successfullAppointments: 625,
-    hasAppointmentsThisWeek: true,
-    closestAppointment: "شنبه 24/3 (13:30)",
-  },
-  {
-    name: "دکتر فروغ موحدزاده",
-    image: "/images/doc.jpg",
-    specialties: ["متخصص زنان و زایمان", "فلوشیپ نازایی"],
-    raters: 145,
-    rating: 4.5,
-    tags: ["خوش برخورد", "وقت شناس"],
-    days: ["شنبه", "دوشنبه"],
-    hours: "8 تا 10",
-    successfullAppointments: 625,
-    hasAppointmentsThisWeek: true,
-    closestAppointment: "شنبه 24/3 (13:30)",
-  },
-];
-
-const SpecialistsResults = () => {
+const SpecialistsResults = ({ specialists }) => {
   return (
     <div className="specialists-results-container">
       <p className="specialists-results-container__title">
