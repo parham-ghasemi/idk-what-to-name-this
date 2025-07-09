@@ -1,6 +1,8 @@
 import AboutSection from "./medicalCenterProfileComponents/aboutSection/AboutSection";
 import DepartmentsSection from "./medicalCenterProfileComponents/departmetnsSection/DepartmentsSection";
 import InsuranceSection from "./medicalCenterProfileComponents/insuranceSection/InsuranceSection";
+import ServicesSection from "./medicalCenterProfileComponents/servicesSection/ServicesSection";
+import SpecialistsSection from "./medicalCenterProfileComponents/specialistsSection/SpecialistsSection";
 import TopCard from "./medicalCenterProfileComponents/topCard/TopCard";
 import "./MedicalProfile.scss";
 
@@ -37,8 +39,10 @@ const MedicalCenterProfile = () => {
   return (
     <div className="medical-center-profile-container">
       <TopCard data={data} />
-      <AboutSection desc={data.description}/>
+      <AboutSection desc={data.description} />
       <DepartmentsSection />
+      <ServicesSection />
+      <SpecialistsSection />
       <InsuranceSection />
     </div>
   );

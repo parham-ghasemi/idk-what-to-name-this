@@ -5,4 +5,6 @@
   width: 100vw;
   min-height: 100vh;
   padding: 56px 120px;
+  @include col;
+  gap: 50px;
 }

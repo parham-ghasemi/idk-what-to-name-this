@@ -1,0 +1,180 @@
+@use "../../../../../../styles/variables.scss" as *;
+@use "../../../../../../styles/mixin.scss" as *;
+
+.specialists-results-container {
+  &__title {
+    @include flex;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 11px;
+
+    span {
+      color: #2c7bf3;
+    }
+  }
+
+  &__body {
+    @include col;
+    gap: 16px;
+    height: 335px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    &:hover {
+      &::-webkit-scrollbar {
+        display: block;
+      }
+    }
+
+    &__item {
+      width: 732px;
+      height: 190px;
+      border-radius: 8px;
+      background-color: white;
+      padding: 16px;
+      @include flex;
+      gap: 16px;
+      align-items: start;
+
+      &__right {
+        @include col;
+        justify-content: start;
+        gap: 16px;
+        min-width: 270px;
+
+        &__top {
+          @include flex;
+          align-items: start;
+          gap: 12px;
+
+          &__img {
+            height: 80px;
+            width: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+          }
+          &__title {
+            @include col;
+            gap: 8px;
+            &__name {
+              font-size: 14px;
+              font-weight: 500;
+            }
+            &__specialties {
+              @include col;
+              gap: 8px;
+              p {
+                font-weight: 400;
+                font-size: 14px;
+              }
+            }
+          }
+        }
+
+        &__rating-container {
+          @include flex;
+          gap: 6px;
+
+          &__rater {
+            font-size: 14px;
+            font-weight: 400;
+            color: #929292;
+          }
+          &__rating {
+            font-size: 14px;
+            font-weight: 500;
+            color: #131415;
+          }
+        }
+
+        &__tags-container {
+          @include flex;
+          gap: 4px;
+
+          &__tag {
+            padding: 5px 8px;
+            border-radius: 10px;
+            background-color: #c8e6c9;
+            color: #2a602c;
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 14px;
+          }
+        }
+      }
+
+      &__sep {
+        height: 158px;
+        width: 1px;
+        background-color: #dfe9ff;
+      }
+
+      &__left {
+        @include col;
+        gap: 10px;
+        font-weight: 400;
+        font-size: 14px;
+        width: 100%;
+
+        &__days {
+          @include flex;
+          gap: 8px;
+        }
+        &__hours {
+          @include flex;
+          gap: 8px;
+        }
+        &__appointments {
+          color: #4caf50;
+          @include flex;
+          gap: 8px;
+        }
+        &__appointments-this-week {
+          @include flex;
+          gap: 8px;
+
+          &__circle {
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+            &--green {
+              background-color: #22c55e;
+            }
+            &--red {
+              background-color: #ff3121;
+            }
+          }
+        }
+        &__closest-container {
+          width: 100%;
+          @include flex;
+          justify-content: space-between;
+
+          &__text {
+            padding: 10px 16px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #2C7BF3;
+            @include flex;
+          }
+
+          &__button {
+            padding: 8px 16px;
+            color: #fff;
+            background-color: #2C7BF3;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 14px;
+            &:hover {
+              background-color: lighten($color: #2C7BF3, $amount: 10);
+            }
+          }
+        }
+      }
+    }
+  }
+}

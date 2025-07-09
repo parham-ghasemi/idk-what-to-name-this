@@ -75,7 +75,7 @@ const DepartmentsSection = () => {
   return (
     <div className="departments-section-container">
       <p className="departments-section-container__title">
-        <img src="/icons/Line arrow-left.svg" alt="square???" />
+        <img src="/icons/Line arrow-left.svg" alt="arrow" />
         بخش های بیمارستان
       </p>
       <div className="departments-section-container__content">
