@@ -1,20 +1,25 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { data } from "./data";
-import AboutSection from "./medicalCenterProfileComponents/aboutSection/AboutSection";
-import DepartmentsSection from "./medicalCenterProfileComponents/departmetnsSection/DepartmentsSection";
-import InsuranceSection from "./medicalCenterProfileComponents/insuranceSection/InsuranceSection";
-import NavBar from "./medicalCenterProfileComponents/navBar/NavBar";
-import ServicesSection from "./medicalCenterProfileComponents/servicesSection/ServicesSection";
-import SpecialistsSection from "./medicalCenterProfileComponents/specialistsSection/SpecialistsSection";
-import TopCard from "./medicalCenterProfileComponents/topCard/TopCard";
+import AboutSection from "./sections/aboutSection/AboutSection";
+import DepartmentsSection from "./sections/departmetnsSection/DepartmentsSection";
+import InsuranceSection from "./sections/insuranceSection/InsuranceSection";
+import NavBar from "./sections/navBar/NavBar";
+import ServicesSection from "./sections/servicesSection/ServicesSection";
+import SpecialistsSection from "./sections/specialistsSection/SpecialistsSection";
+import TopCard from "./sections/topCard/TopCard";
 import "./MedicalProfile.scss";
+import { useModal } from "../../context/messanger";
+import MedicalCenterSearchModal from "./medicalCenterProfileModal/MedicalCenterSearchModal";
+import { Modal } from "../prescriptionModal/components/modal/Modal";
 
 const MedicalCenterProfile = () => {
   const [isFabActive, setIsFabActive] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { openModal } = useModal();
 
   return (
     <div className="medical-center-profile-container">
+      <Modal />
       <TopCard data={data} />
       <NavBar />
       <div id="about">
@@ -47,7 +52,7 @@ const MedicalCenterProfile = () => {
           </p>
           <div
             className="medical-center-profile-container__appointment-fab-container__circle__all-appointments"
-            onMouseDown={() => setIsModalOpen(true)}
+            onMouseDown={() => openModal(<MedicalCenterSearchModal />)}
           >
             مشاهده همه نوبت‌ها
           </div>

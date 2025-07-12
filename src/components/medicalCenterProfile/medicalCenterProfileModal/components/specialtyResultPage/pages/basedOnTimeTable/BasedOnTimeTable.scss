@@ -1,0 +1,86 @@
+@use "../../../../../../../styles/variables.scss" as *;
+@use "../../../../../../../styles/mixin.scss" as *;
+
+.based-tt-container {
+  @include col;
+  gap: 16px;
+  margin-top: 16px;
+
+  &__day-row {
+    @include flex;
+    gap: 16px;
+
+    &__day-card {
+      @include col;
+      align-items: center;
+      width: 96px;
+      border: 1px solid #2b7bf4;
+      padding: 8px 0;
+      border-radius: 8px;
+      cursor: default;
+
+      &__label {
+        font-size: 14px;
+        font-weight: 400;
+      }
+      &__date {
+        font-size: 14px;
+        font-weight: 500;
+        color: #2b7bf4;
+      }
+    }
+
+    &__appointment-card-container {
+      @include flex;
+      gap: 8px;
+
+      &__appointment-card {
+        padding: 8px 0;
+        @include col;
+        gap: 4px;
+        align-items: center;
+        width: 96px;
+        border: 1px solid #bed6fb;
+        border-radius: 8px;
+        cursor: pointer;
+
+        &:hover {
+          box-shadow: $card-shadow;
+        }
+
+        &__time {
+          font-size: 14px;
+          font-weight: 400;
+        }
+        &__noa {
+          font-size: 14px;
+          font-weight: 500;
+          color: #2b7bf4;
+        }
+      }
+
+      &__no-appointments {
+        padding: 8px 0;
+        @include col;
+        gap: 4px;
+        align-items: center;
+        width: 96px;
+        border: 1px solid #bed6fb;
+        background-color: #dbe0e6;
+        cursor: not-allowed;
+
+        border-radius: 8px;
+        p {
+          color: #767a8c;
+          font-size: 14px;
+          font-weight: 400;
+        }
+        span {
+          color: #767a8c;
+          font-size: 14px;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}

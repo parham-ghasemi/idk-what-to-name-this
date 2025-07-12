@@ -11,7 +11,7 @@ const ImagePrescriptionModal = () => {
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
   const [description, setDescription] = useState("");
   const fileInputRef = useRef(null);
-  const { closeModal } = useModal(); // ✅ get closeModal from context
+  const { closeModal } = useModal();
 
   const totalPrice = ImageTestTableRows.reduce(
     (sum, row) => sum + row.price * row.amount,

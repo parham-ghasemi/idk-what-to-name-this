@@ -1,7 +1,10 @@
-@use "../../../../../../styles/variables.scss" as *;
-@use "../../../../../../styles/mixin.scss" as *;
+@use "../../../../styles/variables.scss" as *;
+@use "../../../../styles/mixin.scss" as *;
 
 .specialists-results-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   &__title {
     @include flex;
     gap: 8px;
@@ -15,10 +18,10 @@
   }
 
   &__body {
+    flex: 1;
     @include col;
     gap: 16px;
-    height: 335px;
-    overflow-y: scroll;
+    overflow-y: auto;
     overflow-x: hidden;
 
     &::-webkit-scrollbar {
@@ -158,14 +161,15 @@
             padding: 10px 16px;
             font-size: 14px;
             font-weight: 500;
-            color: #2C7BF3;
+            color: #2c7bf3;
             @include flex;
+            gap: 8px;
           }
 
           &__button {
             padding: 8px 16px;
             color: #fff;
-            background-color: #2C7BF3;
+            background-color: #2c7bf3;
             border-radius: 8px;
             font-weight: 500;
             font-size: 14px;

@@ -1,0 +1,21 @@
+@use "../../../styles/variables.scss" as *;
+@use "../../../styles/mixin.scss" as *;
+
+.medical-center-search-modal {
+  border-radius: 16px;
+  background-color: #f1f6fd;
+  width: fit-content;
+  padding: 16px;
+  position: relative;
+
+  &__close-btn {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(105%);
+    }
+  }
+}

@@ -1,0 +1,42 @@
+@use "../../../../../styles/variables.scss" as *;
+@use "../../../../../styles/mixin.scss" as *;
+
+.available-specialties {
+  @include col;
+  gap: 4px;
+  margin-top: 24px;
+  &__title {
+    font-size: 14px;
+    font-weight: 500;
+    color: #2c7bf3;
+  }
+
+  &__options {
+    width: 100%;
+    max-height: 318px;
+    @include col;
+    gap: 4px;
+    overflow-y: scroll;
+
+    &__item {
+      width: 99%;
+      font-weight: 400;
+      font-size: 14px;
+      padding: 10px;
+      background-color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all ease 200ms;
+
+      &:hover {
+        background-color: #bed6fb;
+        color: #2c7bf3;
+        cursor: pointer;
+
+        &:hover {
+          box-shadow: inset 0px 0px 2px #2c7bf3;
+        }
+      }
+    }
+  }
+}

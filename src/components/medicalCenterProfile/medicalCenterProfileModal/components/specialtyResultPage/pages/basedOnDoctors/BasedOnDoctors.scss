@@ -1,0 +1,16 @@
+@use "../../../../../../../styles/variables.scss" as *;
+@use "../../../../../../../styles/mixin.scss" as *;
+
+.based-on-docs {
+  height: 590px;
+  overflow: hidden;
+  margin-top: 16px;
+
+  & .specialists-results-container__body {
+    gap: 8px;
+
+    &__item {
+      width: auto;
+    }
+  }
+}

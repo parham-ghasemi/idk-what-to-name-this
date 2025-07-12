@@ -12,7 +12,7 @@ const OnlinePrescriptionModal = () => {
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
   const [onAvailablePharmacy, setOnAvailablePharmacy] = useState(false);
   const [selectedDrugs, setSelectedDrugs] = useState({});
-  const { closeModal } = useModal(); // 👈 use context to close modal
+  const { closeModal } = useModal();
 
   return (
     <div className="online-prescription-modal-container__online-prescription-modal">

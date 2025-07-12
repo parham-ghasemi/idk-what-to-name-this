@@ -1,7 +1,7 @@
 import "./SpecialistsSection.scss";
-import SpecialistsResults from "./specialistsSectionComponenets/specialistsResults/SpecialistsResults";
+import SpecialistsResults from "../../components/specialistsResults/SpecialistsResults";
 import SpecialistsSearch from "./specialistsSectionComponenets/specialistsSearch/SpecialistsSearch";
-const SpecialistsSection = ({specialists}) => {
+const SpecialistsSection = ({ specialists }) => {
   return (
     <div className="specialists-section">
       <div className="specialists-section__title-container">
@@ -17,7 +17,10 @@ const SpecialistsSection = ({specialists}) => {
           <SpecialistsSearch />
         </div>
         <div className="specialists-section__body__specialists-container">
-          <SpecialistsResults specialists={specialists}/>
+          <SpecialistsResults
+            specialists={specialists}
+            specialty="قلب و عروق"
+          />
         </div>
       </div>
     </div>

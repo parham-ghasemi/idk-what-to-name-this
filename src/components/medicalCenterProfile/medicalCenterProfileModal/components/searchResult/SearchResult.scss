@@ -1,0 +1,125 @@
+@use "../../../../../styles/variables.scss" as *;
+@use "../../../../../styles/mixin.scss" as *;
+
+.search-result-container {
+  width: 521px;
+  margin: 0 auto;
+  max-height: 250px;
+  background-color: white;
+  color: black;
+  padding: 18px;
+  @include col;
+  gap: 16px;
+  border-radius: 0 0 16px 16px;
+
+  &__title-container {
+    @include flex;
+    width: 100%;
+    gap: 8px;
+
+    &__title {
+      color: #767a8c;
+      font-size: 14px;
+      font-weight: 500;
+      width: fit-content;
+      white-space: nowrap;
+    }
+
+    &__line {
+      height: 1px;
+      flex-grow: 1;
+      background-color: #dfe9ff;
+    }
+
+    &__more {
+      @include flex;
+      color: #9ec2f9;
+      font-size: 12px;
+      font-weight: 400;
+      white-space: nowrap;
+      cursor: pointer;
+      &:hover {
+        filter: brightness(90%);
+      }
+    }
+  }
+
+  &__specialties-res {
+    color: #131415;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    margin-top: 8px;
+    @include flex;
+    justify-content: space-between;
+    cursor: pointer;
+
+    button {
+      @include flex;
+      &:hover {
+        filter: brightness(120%);
+      }
+    }
+
+    span {
+      color: #131415;
+    }
+
+    mark {
+      background-color: transparent;
+      color: #2c7bf3;
+    }
+  }
+
+  &__doctors-res {
+    @include flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 8px;
+    cursor: pointer;
+
+    &__right {
+      @include flex;
+      gap: 8px;
+      &__avatar {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        overflow: hidden;
+      }
+
+      &__name-spec {
+        @include col;
+
+        &__name {
+          font-size: 14px;
+          font-weight: 500;
+          span {
+            color: black;
+          }
+        }
+        &__spec {
+          span {
+            color: #767a8c;
+          }
+          font-size: 12px;
+          font-weight: 400;
+        }
+
+        mark {
+          background-color: transparent;
+          color: #2c7bf3;
+        }
+      }
+    }
+
+    &__left {
+      button {
+        @include flex;
+        &:hover {
+          filter: brightness(120%);
+        }
+      }
+    }
+  }
+}

@@ -1,13 +1,15 @@
 import "./SpecialistsResults.scss";
 
-const SpecialistsResults = ({ specialists }) => {
+const SpecialistsResults = ({ specialists, specialty }) => {
   return (
     <div className="specialists-results-container">
-      <p className="specialists-results-container__title">
-        <img src="/icons/Stethoscope.svg" alt="stethoscope" />
-        <span>تخصص:</span>
-        قلب و عروق
-      </p>
+      {specialty && (
+        <p className="specialists-results-container__title">
+          <img src="/icons/Stethoscope.svg" alt="stethoscope" />
+          <span>تخصص:</span>
+          {specialty}
+        </p>
+      )}
 
       <div className="specialists-results-container__body">
         {specialists.map((specialist, index) => (
@@ -45,7 +47,10 @@ const SpecialistsResults = ({ specialists }) => {
               </div>
               <div className="specialists-results-container__body__item__right__tags-container">
                 {specialist.tags.map((tag, index) => (
-                  <p className="specialists-results-container__body__item__right__tags-container__tag">
+                  <p
+                    key={`tag-index:${index}`}
+                    className="specialists-results-container__body__item__right__tags-container__tag"
+                  >
                     {tag}
                   </p>
                 ))}
@@ -84,7 +89,7 @@ const SpecialistsResults = ({ specialists }) => {
 
               <div className="specialists-results-container__body__item__left__closest-container">
                 <p className="specialists-results-container__body__item__left__closest-container__text">
-                  {`نزدیکترین نوبت ${specialist.closestAppointment}`}
+                  {specialist.closestAppointment}
                   <img src="/icons/arrow-left2.svg" alt="" />
                 </p>
                 <button className="specialists-results-container__body__item__left__closest-container__button">

@@ -1,0 +1,66 @@
+@use "../../../../../styles/variables.scss" as *;
+@use "../../../../../styles/mixin.scss" as *;
+
+.specialty-res-page-container {
+  &__head {
+    @include flex;
+    justify-content: space-between;
+    width: 625px;
+
+    &__title {
+      @include flex;
+      gap: 8px;
+      margin: 0 auto;
+
+      p {
+        color: #131415;
+        font-size: 14px;
+        font-weight: 500;
+      }
+      span {
+        color: #2c7bf3;
+        font-size: 14px;
+        font-weight: 500;
+      }
+    }
+  }
+
+  &__tab-container {
+    @include flex;
+    border-radius: 8px;
+    overflow: hidden;
+    width: fit-content;
+    margin: 0 auto;
+
+    &__tab {
+      padding: 14px 40px;
+      background-color: #f9fafb;
+      position: relative;
+      cursor: pointer;
+      transition: all ease-out 200ms;
+      p {
+        color: #767a8c;
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      &--active {
+        background-color: #dfe9ff;
+        p {
+          color: #2c7bf3;
+        }
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 113px;
+          height: 3px;
+          border-radius: 100px 100px 0 0;
+          background-color: #2c7bf3;
+        }
+      }
+    }
+  }
+}
