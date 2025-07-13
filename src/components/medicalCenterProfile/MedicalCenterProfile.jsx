@@ -8,15 +8,10 @@ import ServicesSection from "./sections/servicesSection/ServicesSection";
 import SpecialistsSection from "./sections/specialistsSection/SpecialistsSection";
 import TopCard from "./sections/topCard/TopCard";
 import "./MedicalProfile.scss";
-import { useModal } from "../../context/messanger";
-import MedicalCenterSearchModal from "./medicalCenterProfileModal/MedicalCenterSearchModal";
 import { Modal } from "../prescriptionModal/components/modal/Modal";
+import AppointmentFab from "./components/appointmentFab/AppointmentFab";
 
 const MedicalCenterProfile = () => {
-  const [isFabActive, setIsFabActive] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const { openModal } = useModal();
-
   return (
     <div className="medical-center-profile-container">
       <Modal />
@@ -38,26 +33,7 @@ const MedicalCenterProfile = () => {
         <InsuranceSection />
       </div>
 
-      <div className="medical-center-profile-container__appointment-fab-container">
-        <div
-          onMouseDown={() => setIsFabActive((prev) => !prev)}
-          className={`medical-center-profile-container__appointment-fab-container__circle ${
-            isFabActive
-              ? "medical-center-profile-container__appointment-fab-container__circle--active"
-              : ""
-          }`}
-        >
-          <p className="medical-center-profile-container__appointment-fab-container__circle__text">
-            دریافت نوبت
-          </p>
-          <div
-            className="medical-center-profile-container__appointment-fab-container__circle__all-appointments"
-            onMouseDown={() => openModal(<MedicalCenterSearchModal />)}
-          >
-            مشاهده همه نوبت‌ها
-          </div>
-        </div>
-      </div>
+      <AppointmentFab />
     </div>
   );
 };

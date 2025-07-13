@@ -2,9 +2,6 @@
 @use "../../../../../../styles/mixin.scss" as *;
 
 .specialists-search-container {
-  // * {
-  //   border: 1px solid red;
-  // }
   width: 100%;
   height: 100%;
   @include col;
@@ -60,7 +57,7 @@
       font-weight: 400;
       border-radius: 4px;
       cursor: pointer;
-      transition: all ease-in 200ms;
+      transition: all ease-in 100ms;
 
       &:hover {
         box-shadow: inset 0px 0px 1px #133567;
