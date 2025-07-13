@@ -1,6 +1,6 @@
 import "./SpecialistsResults.scss";
 
-const SpecialistsResults = ({ specialists, specialty }) => {
+const SpecialistsResults = ({ specialists, specialty, onButtonClick }) => {
   return (
     <div className="specialists-results-container">
       {specialty && (
@@ -92,7 +92,10 @@ const SpecialistsResults = ({ specialists, specialty }) => {
                   {specialist.closestAppointment}
                   <img src="/icons/arrow-left2.svg" alt="" />
                 </p>
-                <button className="specialists-results-container__body__item__left__closest-container__button">
+                <button
+                  className="specialists-results-container__body__item__left__closest-container__button"
+                  onClick={onButtonClick && onButtonClick}
+                >
                   دریافت نوبت
                 </button>
               </div>

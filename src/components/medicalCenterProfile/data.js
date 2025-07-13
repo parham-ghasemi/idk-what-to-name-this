@@ -146,3 +146,22 @@ export const data = {
     },
   ],
 }
+
+export const appointment = {
+  kind: "نوبت متخصص زنان و زایمان",
+  medicalCenter: {
+    name: "نام مرکز درمانی",
+    type: "نوع مرکز درمانی",
+    img: "/images/hospital profile photo.png",
+  },
+  day: "شنبه 12 اردیبهشت",
+  hour: "8 - 10",
+  number: "شماره 13",
+  address:
+    "تهران - تهران، بلوار شهران شمالی، بالاتر از فلکه دوم شهران، بعد از مسجد امام علی، ساختمان داروخانه شبانه روزی دکتر کریمان، طبقه سوم، بلوک شرقی، واحد 31",
+  doctor: {
+    name: "دکتر فروغ موحدزاده",
+    specialty: "متخصص زنان و زایمان",
+    img: "/images/doc2.jpg",
+  },
+};

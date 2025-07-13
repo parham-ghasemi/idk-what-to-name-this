@@ -1,0 +1,43 @@
+@use "../../../../../styles/variables.scss" as *;
+@use "../../../../../styles/mixin.scss" as *;
+
+.doctor-res-page-container {
+  &__head {
+    @include flex;
+    width: 625px;
+    gap: 16px;
+
+    button {
+      @include flex;
+    }
+    &__title {
+      @include flex;
+      gap: 8px;
+
+      p {
+        color: #2c7bf3;
+        font-size: 14px;
+        font-weight: 500;
+      }
+      span {
+        color: #767a8c;
+        font-size: 14px;
+        font-weight: 500;
+      }
+    }
+  }
+
+  &__docs-res-items {
+    height: 590px;
+    overflow: hidden;
+    margin-top: 16px;
+
+    & .specialists-results-container__body {
+      gap: 8px;
+
+      &__item {
+        width: auto;
+      }
+    }
+  }
+}

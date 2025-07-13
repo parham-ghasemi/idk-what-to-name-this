@@ -3,7 +3,7 @@ import "./SpecialtyResultPage.scss";
 import BasedOnDoctors from "./pages/basedOnDoctors/BasedOnDoctors";
 import BasedOnTimeTable from "./pages/basedOnTimeTable/BasedOnTimeTable";
 
-const SpecialtyResultPage = ({ onBack }) => {
+const SpecialtyResultPage = ({ onBack, onDocClick, onTimeCardClick }) => {
   const [tabIndex, setTabIndex] = useState(0);
   const tabs = ["بر اساس جدول زمانی", "بر اساس پزشک"];
   return (
@@ -38,8 +38,8 @@ const SpecialtyResultPage = ({ onBack }) => {
       </div>
 
       <div className="specialty-res-page-container__content">
-        {tabIndex === 0 && <BasedOnTimeTable />}
-        {tabIndex === 1 && <BasedOnDoctors />}
+        {tabIndex === 0 && <BasedOnTimeTable onItemClick={onTimeCardClick} />}
+        {tabIndex === 1 && <BasedOnDoctors onItemClick={onDocClick} />}
       </div>
     </div>
   );

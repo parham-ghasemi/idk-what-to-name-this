@@ -1,4 +1,6 @@
 import "./BasedOnTimeTable.scss";
+import { useModal } from "../../../../../../../context/messanger";
+import WeekdayAppointment from "../../../weekdayAppointment/WeekdayAppointment";
 
 const weekDays = [
   {
@@ -85,7 +87,7 @@ const weekDays = [
   },
 ];
 
-const BasedOnTimeTable = () => {
+const BasedOnTimeTable = ({ onItemClick }) => {
   return (
     <div className="based-tt-container">
       {weekDays.map((day, index) => (
@@ -103,6 +105,7 @@ const BasedOnTimeTable = () => {
               day.appointments.map((item, index) => (
                 <div
                   key={`appointment-card-${index}`}
+                  onClick={onItemClick}
                   className="based-tt-container__day-row__appointment-card-container__appointment-card"
                 >
                   <p className="based-tt-container__day-row__appointment-card-container__appointment-card__time">

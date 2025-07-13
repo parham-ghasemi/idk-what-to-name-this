@@ -2,10 +2,10 @@ import "./BasedOnDoctors.scss";
 import { data } from "../../../../../data";
 import SpecialistsResults from "../../../../../components/specialistsResults/SpecialistsResults";
 
-const BasedOnDoctors = () => {
+const BasedOnDoctors = ({ onItemClick }) => {
   return (
     <div className="based-on-docs">
-      <SpecialistsResults specialists={data.specialists} />
+      <SpecialistsResults specialists={data.specialists} onButtonClick={onItemClick} />
     </div>
   );
 };
