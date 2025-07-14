@@ -1,10 +1,10 @@
 import { useState } from "react";
 import "./ShopppingCart.scss";
 import ShoppingCartTitle from "./components/shoppingCartTitle/ShoppingCartTitle";
-import ShoppingCartSteps from "./components/stepsIndicator/ShoppingCartSteps";
+import ShoppingCartSteps from "./components/shoppingCartSteps/ShoppingCartSteps";
 
 const ShopppingCart = () => {
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(0);
 
   return (
     <div className="shopping-cart-page">
