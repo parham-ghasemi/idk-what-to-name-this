@@ -1,0 +1,52 @@
+@use "../../../../styles/variables.scss" as *;
+@use "../../../../styles/mixin.scss" as *;
+
+.shopping-cart-steps-container {
+  @include flex;
+  justify-content: center;
+  padding: 16px 0;
+  background-color: #eaf2fe4d;
+  gap: 130px;
+
+  &__step {
+    @include col;
+    align-items: center;
+    gap: 6px;
+    p{
+      font-weight: 500;
+      font-size: 14px;
+    }
+    &--current {
+      p {
+        color: #2b7bf4;
+      }
+    }
+    &--past {
+      p {
+        color: #2b7bf4;
+      }
+    }
+    &--future {
+      p {
+        color: #d5d6db;
+      }
+    }
+    &__circle {
+      padding: 18px;
+      border-radius: 50%;
+      border: 1px solid black;
+      @include flex;
+
+      &--current {
+        border-color: #2b7bf4;
+      }
+      &--past {
+        border-color: #2b7bf4;
+        background-color: #2b7bf4;
+      }
+      &--future {
+        border-color: #d5d6db;
+      }
+    }
+  }
+}
