@@ -4,6 +4,8 @@ import ShoppingCartTitle from "./components/shoppingCartTitle/ShoppingCartTitle"
 import ShoppingCartSteps from "./components/shoppingCartSteps/ShoppingCartSteps";
 import ShoppingCartTotalPrice from "./components/shoppingCartTotalPrice/ShoppingCartTotalPrice";
 import ShoppingCartItems from "./components/shoppingCartItems/ShoppingCartItems";
+import AddressSelection from "./components/addressSelection/AddressSelection";
+import TimeSelection from "./components/timeSelection/TimeSelection";
 
 const items = [
   {
@@ -35,11 +37,48 @@ const items = [
     amount: 1,
   },
 ];
+const addresses = [
+  "تهران، قلهک، سیمای جنوبی، ساختمان سیما، طبقه دوم، زنگ سوم",
+  "تهران، قلهک، سیمای جنوبی، ساختمان سیما، طبقه دوم، زنگ سوم",
+  "تهران، قلهک، سیمای جنوبی، ساختمان سیما، طبقه دوم، زنگ سوم",
+];
+const times = [
+  {
+    day: 'دوشنبه',
+    date: '8/04',
+    hours: ['ساعت 9 تا 15', 'ساعت 15 تا 21'],
+  },
+  {
+    day: 'دوشنبه',
+    date: '8/04',
+    hours: ['ساعت 9 تا 15', 'ساعت 15 تا 21'],
+  },
+  {
+    day: 'دوشنبه',
+    date: '8/04',
+    hours: ['ساعت 9 تا 15', 'ساعت 15 تا 21'],
+  },
+  {
+    day: 'دوشنبه',
+    date: '8/04',
+    hours: ['ساعت 9 تا 15', 'ساعت 15 تا 21'],
+  },
+  {
+    day: 'دوشنبه',
+    date: '8/04',
+    hours: ['ساعت 9 تا 15', 'ساعت 15 تا 21'],
+  },
+  {
+    day: 'دوشنبه',
+    date: '8/04',
+    hours: ['ساعت 9 تا 15', 'ساعت 15 تا 21'],
+  },
+]
 
 const ShopppingCart = () => {
   const [currentPage, setCurrentPage] = useState(0);
-  const [chosenAddress, SetChosenAddress] = useState("salam");
-  const [chosenTime, setChosenTime] = useState("salam");
+  const [chosenAddress, setChosenAddress] = useState();
+  const [chosenTime, setChosenTime] = useState();
 
   const [buttonText, setButtonText] = useState("");
 
@@ -62,7 +101,25 @@ const ShopppingCart = () => {
             setCurrentPage={setCurrentPage}
           />
           <div className="shopping-cart-page__shopping-cart-container__body__items">
-            <ShoppingCartItems initialItems={items} />
+            <div className="shopping-cart-page__shopping-cart-container__body__items__right">
+              {currentPage === 0 && <ShoppingCartItems initialItems={items} />}
+              {currentPage === 1 && (
+                <>
+                  <AddressSelection
+                    chosenAddress={chosenAddress}
+                    setChosenAddress={setChosenAddress}
+                    addresses={addresses}
+                    openModal={()=>{}}
+                  />
+                  <TimeSelection
+                    chosenTime={chosenTime}
+                    setChosenTime={setChosenTime}
+                    times={times}
+                    openModal={()=>{}}
+                  />
+                </>
+              )}
+            </div>
 
             <ShoppingCartTotalPrice
               buttonText={buttonText}

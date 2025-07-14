@@ -1,0 +1,52 @@
+@use "../../../../styles/variables.scss" as *;
+@use "../../../../styles/mixin.scss" as *;
+
+.address-selection-container {
+  @include col;
+  gap: 16px;
+  flex-grow: 1;
+
+  &__title {
+    @include flex;
+    gap: 8px;
+    font-weight: 700;
+    font-size: 18px;
+  }
+
+  &__card {
+    border: 1px solid #BED6FB;
+    border-radius: 8px;
+    @include col;
+    position: relative;
+    padding: 16px;
+    p {
+      line-height: 25px;
+    }
+
+    &__title {
+      color: #2C7BF3;
+      font-size: 16px;
+      font-weight: 700;
+    }
+    &__address {
+      color: #131415;
+      font-size: 16px;
+      font-weight: 400;
+    }
+    &__change-address {
+      @include flex;
+      gap: 4px;
+      position: absolute;
+      top: 20px;
+      left: 19px;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 16px;
+
+      &:hover {
+        filter: brightness(80%);
+      }
+    }
+  }
+
+}

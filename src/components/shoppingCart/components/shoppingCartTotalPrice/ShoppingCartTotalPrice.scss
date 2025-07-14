@@ -2,9 +2,6 @@
 @use "../../../../styles/mixin.scss" as *;
 
 .total-price-container {
-  * {
-    // outline: 1px solid red;
-  }
   width: 440px;
   border: 1px solid #bed6fb;
   border-radius: 16px;

@@ -2,9 +2,9 @@
 @use "../../../../styles/mixin.scss" as *;
 
 .shopping-cart-items-container {
-  width: 704px;
   @include col;
   gap: 24px;
+  flex-grow: 1;
 
   &__item {
     padding: 16px;

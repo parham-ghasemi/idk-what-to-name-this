@@ -26,6 +26,12 @@
         @include flex;
         align-items: start;
         justify-content: space-between;
+
+        &__right {
+          width: 704px;
+          @include col;
+          gap: 32px;
+        }
       }
     }
   }
