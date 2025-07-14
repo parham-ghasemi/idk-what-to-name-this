@@ -64,5 +64,14 @@
     &:hover {
       filter: brightness(105%);
     }
+
+    &--disabled {
+      background-color:#DCDEE1;
+      color: #767A8C;
+      cursor: not-allowed;
+      &:hover {
+        filter: none;
+      }
+    }
   }
 }

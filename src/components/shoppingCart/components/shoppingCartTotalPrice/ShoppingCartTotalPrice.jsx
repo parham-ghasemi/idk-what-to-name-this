@@ -7,7 +7,13 @@ const price = {
   numberOfItems: 3,
 };
 
-const ShoppingCartTotalPrice = ({ buttonText, buttonClick }) => {
+const ShoppingCartTotalPrice = ({
+  buttonText,
+  buttonClick,
+  disabled,
+  disabledText,
+}) => {
+
   return (
     <div className="total-price-container">
       <p className="total-price-container__title">صورت حساب</p>
@@ -25,8 +31,14 @@ const ShoppingCartTotalPrice = ({ buttonText, buttonClick }) => {
         جمع سبد خرید
         <span>{`${price.PriceAfterDiscount} تومان`}</span>
       </p>
-      <button className="total-price-container__sub-btn" onClick={buttonClick}>
-        {buttonText}
+      <button
+        className={`total-price-container__sub-btn ${
+          disabled ? "total-price-container__sub-btn--disabled" : ""
+        }`}
+        onClick={buttonClick}
+        disabled={disabled}
+      >
+        {disabled && disabledText ? disabledText : buttonText}
       </button>
     </div>
   );
