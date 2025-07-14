@@ -1,0 +1,14 @@
+@use "../../styles/variables.scss" as *;
+@use "../../styles/mixin.scss" as *;
+
+.shopping-cart-page {
+  min-height: 100vh;
+  min-width: 100vw;
+  padding-top: 30px;
+
+  &__shopping-cart-container {
+    width: 1200px;
+    min-height: 1200px;
+    margin: 0 auto;
+  }
+}

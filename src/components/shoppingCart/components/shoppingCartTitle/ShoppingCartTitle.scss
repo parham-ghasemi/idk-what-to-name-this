@@ -1,0 +1,17 @@
+@use "../../../../styles/variables.scss" as *;
+@use "../../../../styles/mixin.scss" as *;
+
+.shopping-cart-title-container {
+  width: 100%;
+  padding: 8px;
+  gap: 8px;
+  border: 1px solid #BED6FB;
+  @include flex;
+  border-radius: 8px;
+
+  p {
+    font-weight: 700;
+    font-size: 18px;
+    color: #131415;
+  }
+}

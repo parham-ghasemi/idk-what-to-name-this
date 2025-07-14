@@ -7,6 +7,7 @@ import InsuranceSwiper from "./components/swiper/InsuranceSwiper";
 import MedicalCenterProfile from "./components/medicalCenterProfile/MedicalCenterProfile";
 import MessangerContextProvider from "./context/messanger";
 import { Modal } from "./components/prescriptionModal/components/modal/Modal";
+import ShopppingCart from "./components/shoppingCart/ShopppingCart";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -17,7 +18,8 @@ function App() {
         {/* <DoctorsPage /> */}
         {/* <PrescriptionModalPage /> */}
         {/* <InsuranceSwiper /> */}
-        <MedicalCenterProfile />
+        {/* <MedicalCenterProfile /> */}
+        <ShopppingCart />
       </div>
     </MessangerContextProvider>
   );
