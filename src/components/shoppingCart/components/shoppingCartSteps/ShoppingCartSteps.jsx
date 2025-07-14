@@ -25,6 +25,7 @@ const ShoppingCartSteps = ({ currentPage }) => {
       <div className="shopping-cart-steps-container__steps">
         {steps.map((step, index) => (
           <div
+          key={`step-index:${index}`}
             className={`shopping-cart-steps-container__steps__step ${
               index < currentPage &&
               "shopping-cart-steps-container__steps__step--past"
@@ -55,7 +56,6 @@ const ShoppingCartSteps = ({ currentPage }) => {
             <p>{step.label}</p>
           </div>
         ))}
-        {/* <div className="shopping-cart-steps-container__steps__sep"></div> */}
       </div>
     </div>
   );

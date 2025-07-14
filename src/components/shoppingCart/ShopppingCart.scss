@@ -19,6 +19,8 @@
       border-radius: 16px;
       min-height: 400px;
       padding: 16px;
+      @include col;
+      gap: 32px;
     }
   }
 }

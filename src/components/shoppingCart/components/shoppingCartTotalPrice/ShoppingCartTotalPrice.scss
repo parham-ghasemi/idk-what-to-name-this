@@ -1,0 +1,68 @@
+@use "../../../../styles/variables.scss" as *;
+@use "../../../../styles/mixin.scss" as *;
+
+.total-price-container {
+  * {
+    // outline: 1px solid red;
+  }
+  width: 440px;
+  border: 1px solid #bed6fb;
+  border-radius: 16px;
+  padding: 16px;
+  @include col;
+  gap: 32px;
+
+  &__title {
+    font-weight: 700;
+    font-size: 18px;
+  }
+
+  &__price {
+    @include col;
+    gap: 16px;
+
+    p {
+      @include flex;
+      justify-content: space-between;
+      font-size: 16px;
+      font-weight: 500;
+      span {
+        color: #131415;
+      }
+    }
+    &__discount {
+      color: #367c39;
+      span {
+        color: #367c39 !important;
+      }
+    }
+  }
+
+  &__after-discount {
+    font-size: 16px;
+    font-weight: 500;
+    @include flex;
+    justify-content: space-between;
+    padding: 8px;
+    border-top: solid 1px #BED6FB;
+    span {
+      color: #131415;
+    }
+  }
+
+  &__sub-btn {
+    flex-grow: 1;
+    padding: 10px 0;
+    font-size: 20px;
+    font-weight: 500;
+    background-color: #2C7BF3;
+    text-align: center;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 32px;
+
+    &:hover {
+      filter: brightness(105%);
+    }
+  }
+}
