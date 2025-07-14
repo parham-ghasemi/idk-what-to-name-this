@@ -21,6 +21,12 @@
       padding: 16px;
       @include col;
       gap: 32px;
+
+      &__items {
+        @include flex;
+        align-items: start;
+        justify-content: space-between;
+      }
     }
   }
 }

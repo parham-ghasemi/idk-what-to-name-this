@@ -1,0 +1,69 @@
+@use "../../../../styles/variables.scss" as *;
+@use "../../../../styles/mixin.scss" as *;
+
+.shopping-cart-items-container {
+  width: 704px;
+  @include col;
+  gap: 24px;
+
+  &__item {
+    padding: 16px;
+    border: 1px solid #bed6fb;
+    border-radius: 16px;
+    flex-grow: 1;
+    height: 161px;
+    @include flex;
+    gap: 16px;
+    position: relative;
+
+    img {
+      height: 131px;
+      width: 131px;
+      object-fit: scale-down;
+    }
+
+    &__title-price {
+      @include col;
+      align-items: center;
+      gap: 8px;
+
+      &__title {
+        font-weight: 400;
+        font-size: 16px;
+      }
+      &__title-en {
+        font-weight: 500;
+        font-size: 14px;
+        color: #b6b6b6;
+      }
+      &__price {
+        color: #2c7bf3;
+        font-weight: 400;
+        font-size: 16px;
+      }
+    }
+
+    &__amount {
+      @include flex;
+      gap: 12px;
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+      height: 36px;
+      padding: 10px 17px;
+      border: 1px solid #2c7bf3;
+      border-radius: 8px;
+
+      img {
+        height: 16px;
+        width: 16px;
+      }
+      p {
+        height: 19px;
+        width: 10px;
+        text-align: center;
+        font-size: 16px;
+      }
+    }
+  }
+}
