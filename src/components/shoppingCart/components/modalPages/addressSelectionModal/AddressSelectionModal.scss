@@ -1,0 +1,62 @@
+@use "../../../../../styles/variables.scss" as *;
+@use "../../../../../styles/mixin.scss" as *;
+
+.address-selection-modal {
+  width: 752px;
+  padding: 24px;
+  @include col;
+
+  &__addresses-container {
+    padding: 16px;
+    border: 1px solid #bed6fb;
+    border-radius: 8px;
+    @include col;
+    gap: 37px;
+    margin-top: 24px;
+
+    &__address-item {
+      @include flex;
+      gap: 10px;
+      position: relative;
+
+      input[type="radio"] {
+        appearance: auto;
+      }
+      label {
+        cursor: pointer;
+        transition: filter ease-out 200ms;
+        &:hover {
+          filter: brightness(150%);
+        }
+      }
+
+      &__edit {
+        position: absolute;
+        left: 0;
+        @include flex;
+        transition: filter ease-out 200ms;
+
+        &:hover {
+          filter: brightness(90%);
+        }
+      }
+    }
+  }
+
+  &__add-new {
+    @include flex;
+    justify-content: center;
+    gap: 8px;
+    background-color: #2c7bf3;
+    flex: 1;
+    padding: 8px 0;
+    border-radius: 8px;
+    color: white;
+    transition: filter ease-out 200ms;
+    margin-top: 32px;
+
+    &:hover {
+      filter: brightness(103%);
+    }
+  }
+}

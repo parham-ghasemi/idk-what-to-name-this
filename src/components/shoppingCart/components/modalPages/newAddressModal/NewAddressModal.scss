@@ -1,0 +1,94 @@
+@use "../../../../../styles/variables.scss" as *;
+@use "../../../../../styles/mixin.scss" as *;
+
+.new-address-modal {
+  width: 752px;
+  padding: 24px;
+  @include col;
+  gap: 16px;
+
+  &__address-container {
+    @include col;
+    gap: 4px;
+
+    &__label {
+      font-weight: 400;
+      font-size: 14px;
+      color: #767a8c;
+      transition: color ease-out 200ms;
+    }
+    &__input {
+      border: 1px solid #acadaf;
+      height: 90px;
+      padding: 8px;
+      font-weight: 400;
+      font-size: 14px;
+      border-radius: 4px;
+      cursor: text;
+      transition: border ease-out 200ms;
+    }
+
+    &--written {
+      .new-address-modal__address-container__label {
+        color: #2c7bf3;
+      }
+      .new-address-modal__address-container__input {
+        border-color: #2c7bf3;
+      }
+    }
+  }
+
+  &__address-details {
+    @include flex;
+    gap: 16px;
+
+    &__container {
+      width: 188px;
+      @include col;
+      gap: 4px;
+
+      &__label {
+        font-weight: 400;
+        font-size: 14px;
+        transition: color ease-out 200ms;
+        &--written {
+          color: #2c7bf3;
+        }
+      }
+      &__input {
+        border: 1px solid #acadaf;
+        border-radius: 4px;
+        padding: 8px;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 16px;
+        cursor: text;
+        transition: border ease-out 200ms;
+        &--written {
+          border: 1px solid #2c7bf3;
+        }
+      }
+    }
+  }
+
+  &__map {
+    width: 100%;
+    height: 300px;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  &__button {
+    flex: 1;
+    padding: 8px;
+    background-color: #2c7bf3;
+    border-radius: 8px;
+    text-align: center;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    &:hover {
+      filter: brightness(103%);
+    }
+  }
+}
