@@ -1,8 +1,26 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./ShoppingCartItems.scss";
 
-const ShoppingCartItems = ({ initialItems }) => {
+const ShoppingCartItems = ({
+  initialItems,
+  setNumberOfItems,
+  setChangedItems,
+  setPriceSum,
+}) => {
   const [items, setItems] = useState(initialItems);
+
+  useEffect(() => {
+    const totalItems = items.reduce((acc, item) => acc + item.amount, 0);
+    const totalPrice = items.reduce(
+      (acc, item) =>
+        acc + parseInt(item.price.replace(/,/g, ""), 10) * item.amount,
+      0
+    );
+
+    setNumberOfItems(totalItems);
+    setChangedItems(items);
+    setPriceSum(totalPrice);
+  }, [items, setNumberOfItems, setChangedItems, setPriceSum]);
 
   const incrementAmount = (index) => {
     const updatedItems = [...items];

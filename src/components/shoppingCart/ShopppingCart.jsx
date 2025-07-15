@@ -6,6 +6,7 @@ import ShoppingCartTotalPrice from "./components/shoppingCartTotalPrice/Shopping
 import ShoppingCartItems from "./components/shoppingCartItems/ShoppingCartItems";
 import AddressSelection from "./components/addressSelection/AddressSelection";
 import TimeSelection from "./components/timeSelection/TimeSelection";
+import PaymentMethod from "./components/paymentMethod/PaymentMethod";
 
 const items = [
   {
@@ -44,47 +45,62 @@ const addresses = [
 ];
 const times = [
   {
-    day: 'دوشنبه',
-    date: '8/04',
-    hours: ['ساعت 9 تا 15', 'ساعت 15 تا 21'],
+    day: "دوشنبه",
+    date: "8/04",
+    hours: ["ساعت 9 تا 15", "ساعت 15 تا 21"],
   },
   {
-    day: 'دوشنبه',
-    date: '8/04',
-    hours: ['ساعت 9 تا 15', 'ساعت 15 تا 21'],
+    day: "دوشنبه",
+    date: "8/04",
+    hours: ["ساعت 9 تا 15", "ساعت 15 تا 21"],
   },
   {
-    day: 'دوشنبه',
-    date: '8/04',
-    hours: ['ساعت 9 تا 15', 'ساعت 15 تا 21'],
+    day: "دوشنبه",
+    date: "8/04",
+    hours: ["ساعت 9 تا 15", "ساعت 15 تا 21"],
   },
   {
-    day: 'دوشنبه',
-    date: '8/04',
-    hours: ['ساعت 9 تا 15', 'ساعت 15 تا 21'],
+    day: "دوشنبه",
+    date: "8/04",
+    hours: ["ساعت 9 تا 15", "ساعت 15 تا 21"],
   },
   {
-    day: 'دوشنبه',
-    date: '8/04',
-    hours: ['ساعت 9 تا 15', 'ساعت 15 تا 21'],
+    day: "دوشنبه",
+    date: "8/04",
+    hours: ["ساعت 9 تا 15", "ساعت 15 تا 21"],
   },
   {
-    day: 'دوشنبه',
-    date: '8/04',
-    hours: ['ساعت 9 تا 15', 'ساعت 15 تا 21'],
+    day: "دوشنبه",
+    date: "8/04",
+    hours: ["ساعت 9 تا 15", "ساعت 15 تا 21"],
   },
-]
+];
 
 const ShopppingCart = () => {
   const [currentPage, setCurrentPage] = useState(0);
-  const [chosenAddress, setChosenAddress] = useState();
-  const [chosenTime, setChosenTime] = useState();
+
+  const [numberOfItems, setNumberOfItems] = useState(0);
+  const [priceSum, setPriceSum] = useState(0);
+  const [discount, setDiscount] = useState(70000);
+  const [shippingCost, setShippingCost] = useState();
+
+  const [changedItems, setChangedItems] = useState(0);
+
+  const [chosenAddress, setChosenAddress] = useState(addresses[1]);
+  const [chosenTime, setChosenTime] = useState(
+    "دوشنبه 1404/04/08 ساعت 9 تا 15"
+  );
 
   const [buttonText, setButtonText] = useState("");
 
   useEffect(() => {
     const buttonLabels = ["تکمیل سفارش", "ثبت سفارش", "پرداخت"];
     setButtonText(buttonLabels[currentPage] || "");
+    if (currentPage === 2) {
+      const shippingCostTst = 7000;
+      setShippingCost(shippingCostTst);
+      setPriceSum((prev) => prev + shippingCostTst);
+    }
   }, [currentPage]);
 
   return (
@@ -102,22 +118,38 @@ const ShopppingCart = () => {
           />
           <div className="shopping-cart-page__shopping-cart-container__body__items">
             <div className="shopping-cart-page__shopping-cart-container__body__items__right">
-              {currentPage === 0 && <ShoppingCartItems initialItems={items} />}
+              {currentPage === 0 && (
+                <ShoppingCartItems
+                  initialItems={items}
+                  setNumberOfItems={setNumberOfItems}
+                  setChangedItems={setChangedItems}
+                  setPriceSum={setPriceSum}
+                />
+              )}
               {currentPage === 1 && (
                 <>
                   <AddressSelection
                     chosenAddress={chosenAddress}
                     setChosenAddress={setChosenAddress}
                     addresses={addresses}
-                    openModal={()=>{}}
+                    openModal={() => {}}
                   />
                   <TimeSelection
                     chosenTime={chosenTime}
                     setChosenTime={setChosenTime}
                     times={times}
-                    openModal={()=>{}}
+                    openModal={() => {}}
                   />
                 </>
+              )}
+              {currentPage === 2 && (
+                <PaymentMethod
+                  address={chosenAddress}
+                  time={chosenTime}
+                  numberOfItems={numberOfItems}
+                  items={changedItems}
+                  priceSum={priceSum}
+                />
               )}
             </div>
 
@@ -125,6 +157,10 @@ const ShopppingCart = () => {
               buttonText={buttonText}
               disabled={currentPage === 1 && !chosenAddress && !chosenTime}
               disabledText={currentPage === 1 && "ثبت زمان تحویل"}
+              ogPrice={priceSum}
+              discount={discount}
+              priceAfterDiscount={priceSum - discount}
+              shippingCost={shippingCost}
               buttonClick={() =>
                 currentPage === 0
                   ? setCurrentPage(1)
