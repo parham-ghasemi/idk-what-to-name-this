@@ -1,6 +1,6 @@
 import "./TimeSelection.scss";
 
-const TimeSelection = ({ chosenTime, setChosenTime, times, openModal }) => {
+const TimeSelection = ({ chosenTime, openModal }) => {
   return (
     <div className="time-selection-container">
       <p className="time-selection-container__title">
@@ -10,7 +10,7 @@ const TimeSelection = ({ chosenTime, setChosenTime, times, openModal }) => {
       <div className="time-selection-container__card">
         <p className="time-selection-container__card__title">زمان تحویل</p>
         <p className="time-selection-container__card__time">
-          {chosenTime ? chosenTime : "زمان تحویل انتخاب نشده است."}
+          {chosenTime ? `${chosenTime.date} ${chosenTime.day} ${chosenTime.selectedHour}` : "زمان تحویل انتخاب نشده است."}
         </p>
         <p
           className="time-selection-container__card__change-time"

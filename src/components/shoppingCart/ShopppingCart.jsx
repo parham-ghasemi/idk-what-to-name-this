@@ -11,6 +11,7 @@ import AddressSelectionModal from "./components/modalPages/addressSelectionModal
 import { useModal } from "../../context/messanger";
 import { items, addresses, times } from "./data";
 import { Modal } from "../prescriptionModal/components/modal/Modal";
+import TimeSelectionModal from "./components/modalPages/timeSelectionModal/TimeSelectionModal";
 
 const ShopppingCart = () => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -82,7 +83,11 @@ const ShopppingCart = () => {
                       chosenTime={chosenTime}
                       setChosenTime={setChosenTime}
                       times={times}
-                      openModal={() => {}}
+                      openModal={() =>
+                        openModal(
+                          <TimeSelectionModal shippingCost={shippingCost} setSelectedTime={setChosenTime}/>
+                        )
+                      }
                     />
                   </>
                 )}

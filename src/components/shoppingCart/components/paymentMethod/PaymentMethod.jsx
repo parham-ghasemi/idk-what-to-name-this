@@ -50,7 +50,7 @@ const PaymentMethod = ({ address, time, numberOfItems, items, priceSum }) => {
             <img src="/icons/truck-fast-current.svg" alt="truck-fast" />
             <div className="payment-method-container__card__summary__address-date__text">
               <p className="payment-method-container__card__summary__address-date__text__date">
-                {time}
+                {`${time.date} ${time.day} ${time.selectedHour}`}
               </p>
               <p className="payment-method-container__card__summary__address-date__text__address">
                 {`آدرس: ${address}`}
