@@ -6,12 +6,19 @@ import ModalHeader from "../components/modalHeader/ModalHeader";
 import "./NewAddressModal.scss";
 import { useModal } from "../../../../../context/messanger";
 
-const NewAddressModal = ({ setOnNewAddress }) => {
-  const [city, setCity] = useState();
-  const [address, setAddress] = useState("");
-  const [postalCode, setPostalCode] = useState("");
-  const [pelak, setPelak] = useState("");
-  const [vahed, setVahed] = useState("");
+const NewAddressModal = ({
+  setOnNewAddress,
+  initCity = undefined,
+  initAddress = "",
+  initPostalCode = "",
+  initPelak = "",
+  initVahed = "",
+}) => {
+  const [city, setCity] = useState(initCity);
+  const [address, setAddress] = useState(initAddress);
+  const [postalCode, setPostalCode] = useState(initPostalCode);
+  const [pelak, setPelak] = useState(initPelak);
+  const [vahed, setVahed] = useState(initVahed);
 
   return (
     <div className="new-address-modal">
@@ -20,6 +27,7 @@ const NewAddressModal = ({ setOnNewAddress }) => {
         title="شهر"
         items={["تهران", "اصفهان", "شیراز", "مشهد"]}
         setCity={setCity}
+        initValue={city}
       />
       <div
         className={`new-address-modal__address-container ${
@@ -65,7 +73,7 @@ const NewAddressModal = ({ setOnNewAddress }) => {
                 : ""
             }`}
           >
-            کدپستی
+            پلاک
           </span>
           <input
             type="text"
@@ -86,7 +94,7 @@ const NewAddressModal = ({ setOnNewAddress }) => {
                 : ""
             }`}
           >
-            پلاک
+            واحد
           </span>
           <input
             type="text"

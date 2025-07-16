@@ -8,7 +8,13 @@ export const items = new Array(4).fill(
   },
 )
 
-export const addresses = new Array(3).fill("تهران، قلهک، سیمای جنوبی، ساختمان سیما، طبقه دوم، زنگ سوم");
+export const addresses = new Array(3).fill({
+  city: 'تهران',
+  address: "تهران، قلهک، سیمای جنوبی، ساختمان سیما، طبقه دوم، زنگ سوم",
+  postalCode: '12345678',
+  pelak: '12',
+  vahed: '4'
+});
 
 export const times = new Array(7).fill(
   {

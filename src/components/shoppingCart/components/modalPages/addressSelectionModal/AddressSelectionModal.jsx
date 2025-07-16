@@ -7,18 +7,31 @@ import { useModal } from "../../../../../context/messanger";
 
 const AddressSelectionModal = ({ setAddress }) => {
   const [onNewAddress, setOnNewAddress] = useState(false);
+  const [editAddress, setEditAddress] = useState(null);
 
-  const {closeModal} = useModal();
+  const { closeModal } = useModal();
 
   const handleSelect = (address) => {
     setAddress(address);
     closeModal();
-  }
+  };
+
+  const handleEdit = (address) => {
+    setEditAddress(address);
+    setOnNewAddress(true);
+  };
 
   return (
     <>
       {onNewAddress ? (
-        <NewAddressModal setOnNewAddress={setOnNewAddress} />
+        <NewAddressModal
+          setOnNewAddress={setOnNewAddress}
+          initCity={editAddress?.city}
+          initAddress={editAddress?.address}
+          initPostalCode={editAddress?.postalCode}
+          initPelak={editAddress?.pelak}
+          initVahed={editAddress?.vahed}
+        />
       ) : (
         <div className="address-selection-modal">
           <ModalHeader title="آدرس‌های ثبت شده" />
@@ -26,16 +39,21 @@ const AddressSelectionModal = ({ setAddress }) => {
             {addresses.map((address, index) => (
               <div
                 className="address-selection-modal__addresses-container__address-item"
-                key={`${address} - ${index}`}
+                key={index}
               >
                 <input
                   type="radio"
-                  id={`${address}-${index}`}
+                  id={`address-${index}`}
                   name="address"
                   onChange={() => handleSelect(address)}
                 />
-                <label htmlFor={`${address}-${index}`}>{address}</label>
-                <button className="address-selection-modal__addresses-container__address-item__edit">
+                <label htmlFor={`address-${index}`}>
+                  {`${address.city}، ${address.address}، پلاک ${address.pelak}، واحد ${address.vahed}`}
+                </label>
+                <button
+                  className="address-selection-modal__addresses-container__address-item__edit"
+                  onClick={() => handleEdit(address)}
+                >
                   <img src="/icons/edit.svg" alt="edit" />
                 </button>
               </div>
@@ -43,7 +61,10 @@ const AddressSelectionModal = ({ setAddress }) => {
           </div>
           <button
             className="address-selection-modal__add-new"
-            onClick={() => setOnNewAddress(true)}
+            onClick={() => {
+              setEditAddress(null);
+              setOnNewAddress(true);
+            }}
           >
             <img src="/icons/add.svg" alt="add" />
             ثبت آدرس جدید

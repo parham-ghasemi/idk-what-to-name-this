@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import "./Dropdown.scss";
 
-const Dropdown = ({ title, items, setCity }) => {
+const Dropdown = ({ title, items, setCity, initValue = null }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selected, setSelected] = useState(null);
+  const [selected, setSelected] = useState(initValue);
   const dropdownRef = useRef(null);
 
   const toggleDropdown = () => setIsOpen((prev) => !prev);
@@ -13,6 +13,13 @@ const Dropdown = ({ title, items, setCity }) => {
     setCity(item);
     setIsOpen(false);
   };
+
+  useEffect(() => {
+    if (initValue) {
+      setSelected(initValue);
+      setCity(initValue);
+    }
+  }, [initValue, setCity]);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -26,11 +33,13 @@ const Dropdown = ({ title, items, setCity }) => {
 
   return (
     <div className="modal-dropdown-container" ref={dropdownRef}>
-      <label 
+      <label
         className={`modal-dropdown-container__label ${
           selected ? "modal-dropdown-container__label--selected" : ""
         }`}
-      >{title}</label>
+      >
+        {title}
+      </label>
       <div
         className={`modal-dropdown-container__button ${
           selected ? "modal-dropdown-container__button--selected" : ""

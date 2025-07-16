@@ -15,7 +15,7 @@ const AddressSelection = ({
       <div className="address-selection-container__card">
         <p className="address-selection-container__card__title">آدرس تحویل</p>
         <p className="address-selection-container__card__address">
-          {chosenAddress ? chosenAddress : "آدرس انتخاب نشده است."}
+          {chosenAddress ? chosenAddress.address : "آدرس انتخاب نشده است."}
         </p>
         <p
           className="address-selection-container__card__change-address"

@@ -53,7 +53,7 @@ const PaymentMethod = ({ address, time, numberOfItems, items, priceSum }) => {
                 {`${time.date} ${time.day} ${time.selectedHour}`}
               </p>
               <p className="payment-method-container__card__summary__address-date__text__address">
-                {`آدرس: ${address}`}
+                {`آدرس: ${address.address}`}
               </p>
             </div>
           </div>
